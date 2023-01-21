@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+body {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    margin: 0;
+    background-color: black;
+    color: aliceblue;
+    justify-content: space-between;
+    font-family: 'Stint Ultra Expanded', 'Padyakke Expanded One', sans-serif;
+    font-size: 16px;
+    font-family: 'Montserrat', 'Poppins',sans-serif;
+    font-size: 16px;
+    width: 100%;
+    height: 100vh;
+  }
+
+  #create-playlist {
+    text-align: start;
+  }
+.container-2 {
+  margin-top: 10px;
+  padding: 0 8px 10px 8px;
+  width: 300px;
+  height: 420px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid chartreuse;
+  background-color: black;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba($color: chartreuse, $alpha: 0.1);
+}
+
+h3 {
+  margin-top: 20px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+    .single {
+      justify-content: center;
+      width: 100%;
+      height: 300px;
+    }
+      /* #track- {
+        width: 100%;
+        height: 380px;
+        background-color: black;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba($color: chartreuse, $alpha: 0.2);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      } */
+
+        #album-cover {
+          /* width: 80%;
+          border-radius: 20px;
+          box-shadow: 0 0 10px rgba($color: black, $alpha: 0.1); */
+          /* max-height: 75px; */
+          width: 80%;
+          margin: 25px;
+          text-align: center;
+        }
+
+        #track-info {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+          width: 80%;
+          margin: 15px 0 10px 28px;
+          font-size: 12px;
+        }
+        
+        #audio-player {
+          width: 80%;
+          margin: 10px 0 10px 0;
+          padding: 0;
+          border: 1px solid chartreuse;
+          width: 145px;
+          text-align: center;
+        }
+
+        .time {
+          font-size: 12px;
+          margin: 20px 0 5px 0;
+          color: aliceblue;
+          font-weight: 300;
+        }
+
+        .seekbar-container {
+          display: flex;
+          /* margin: 0 30px 0 0; */
+          align-items: center;
+          justify-content: space-around;
+          overflow: hidden;
+          width: 100%;
+          height: 4px;
+          border-radius: 50px;
+          background-color: darkslategray;
+          position: relative;
+        }
+
+        .seekbar-inner {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 4px;
+          background-color: chartreuse;
+        }
+    
+        #audio-player-buttons {
+          width: 100%;
+          display:flex;
+          align-items: center;
+          justify-content: space-around;
+          margin: 10px 0 10px 0;
+          color: chartreuse;
+          cursor: pointer;
+        }
+
+
+
+
+.track-active {
+  display: flex;
+
+}
+      
+
+      
+ 
+
+  li {
+    margin-top: 10px;
+    list-style-type:none;
+    font-size: 12px;
+  } 
+
+  #search-button, #create-button, #add-button {
+    margin-top: 10px;
+    padding: 3px 5px;
+    background-color: chartreuse;
+    border: none;
+    border-radius: 5px;
+  }
+
+  input {
+    background-color:darkslategray;
+    color: aliceblue;
+    border: 1px solid chartreuse;
+  }
+
+  /* #playlist-name {
+    margin: 10px 0 0 0;
+  }
+
+  #album-cover {
+    max-height: 75px;
+    width: 100%;
+    margin: 10px 0 0 0;
+    text-align: start;
+  }
+
+  #track-info {
+    font-size: 10pt;
+  }
+
+    #audio-player {
+      margin: 10px 0 10px 0;
+      padding: 0;
+      border: 1px solid chartreuse;
+      width: 145px;
+      text-align: center;
+    }
+
+    #audio-player-buttons {
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 30px;
+     
+      color: chartreuse;
+      cursor: pointer;
+    } */

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Padyakke+Expanded+One&family=Stint+Ultra+Expanded&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&family=Poppins:wght@100;200;400&display=swap"
+      rel="stylesheet"
+    />
+
+   <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudfare.com/ajax/libs/fon"
+    /> -->
+    <link rel="stylesheet" href="./assets/css/music.css" />
+    <title>JoyRide | Music</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <div class="py-3">
+            <h3 id="create-playlist" class="ml-5">Create Playlist:</h3>
+            <ul class="list-group" id="playlist"></ul>
+            <li>Playlist Name:</li>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="playlist-name-input" placeholder="Create Playlist Name" />
+            </div>
+
+            <button
+              id="create-button"
+              value="Create"
+              class="btn btn-secondary col-12">
+              Create
+            </button>
+
+            <ul class="list-group" id="playlist"></ul>
+            <!-- <li>${cityData.temp}</li> -->
+            <li>Artist or Song:</li>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="playlist-artist" placeholder="Search Artist or Song" />
+            </div>
+            <!-- <li>Album:</li>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="playlist-album" />
+            </div>
+            <li>Song:</li>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="playlist-song" />
+            </div> -->
+
+            <button
+              id="search-button"
+              value="Search"
+              class="btn btn-secondary col-12"
+            >
+              Search
+            </button>
+
+            <button
+            id="add-button"
+            value="add"
+            class="btn btn-secondary col-12"
+          >
+            Add
+          </button>
+
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- audio player -->
+<!-- referenced: https://www.youtube.com/watch?v=hJfhni_w8w8 -->
+<div class="container-2">
+    <div class="row">
+    <div class="single">
+            <!-- <div class="col-8 border p-3"> -->
+                <h3 id="playlist-name">Playlist Name</h3>
+                <div id="track-1" class="track-active">
+                <img id="album-cover" src="/Users/mchong/bootcamp/projects/JoyRide/assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
+            </div>
+                <div id="track-info">
+                    <h4>Current Song Name</h4>
+                    <h4>Current Artist</h4>
+                    <h4>Current Album</h4>
+                </div>
+                
+            </div>
+              <!-- <li id="song-name">Song</li>
+              <li id="artist-name">Artist</li>
+              <li id="album-name">Album</li> -->
+              <div class="audio-player">
+              <p class="time">00:00</p>
+              <div class="seekbar-container"><div class="seekbar-inner" style="width: 0%"></div></div>
+                <div id="audio-player-buttons" class="container">
+                    <div class="prev"><i class="fas fa-backward"></i></div>
+                    <div class="play"><i class="fas fa-play"></i></div>
+                    <div class="next"><i class="fas fa-forward"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div id="track-2" class="track-active">
+            <h3 id="playlist-name">Playlist Name</h3>
+            <img id="album-cover" src="/Users/mchong/bootcamp/projects/JoyRide/assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
+            <div id="track-info">
+                <h4>Song Name</h4>
+                <h4>Artist</h4>
+                <h4>Album</h4>
+            </div>
+            </div>
+          <!-- <li id="song-name">Song</li>
+          <li id="artist-name">Artist</li>
+          <li id="album-name">Album</li> -->
+          <div class="audio-player">
+          <p class="time">00:00</p>
+          <div class="seekbar-container"><div class="seekbar-inner" style="width: 0%"></div></div>
+            <div id="audio-player-buttons" class="container">
+                <div class="prev"><i class="fas fa-backward"></i></div>
+                <div class="play"><i class="fas fa-play"></i></div>
+                <div class="next"><i class="fas fa-forward"></i></div>
+            </div>
+        </div>
+    </div>
+
+       
+
+    <ul class="list">
+        <li class="active" id="#track-1">
+        <img id="album-cover" src="/Users/mchong/bootcamp/projects/JoyRide/assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
+   <div id="track-info">
+    <h4>Song Name</h4>
+    <h4>Artist</h4>
+    <h4>Album</h4>
+   </div>
+      <span>0:00</span>
+    </li>
+    <li class="active" id="#track-2">
+        <img id="album-cover" src="/Users/mchong/bootcamp/projects/JoyRide/assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
+   <div id="track-info">
+    <h4>Song Name</h4>
+    <h4>Artist</h4>
+    <h4>Album</h4>
+   </div>
+      <span>0:00</span>
+    </li>
+</ul>
+
+</div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./assets/js/music.js"></script>
+  
+</body>
+</html>
