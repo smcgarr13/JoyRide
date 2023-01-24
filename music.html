@@ -63,19 +63,10 @@
             </button>
 
             <ul class="list-group" id="playlist"></ul>
-            <!-- <li>${cityData.temp}</li> -->
             <li>Artist or Song:</li>
             <div class="col-sm-12">
               <input type="text" class="form-control" id="playlist-artist" placeholder="Search Artist or Song" />
             </div>
-            <!-- <li>Album:</li>
-            <div class="col-sm-12">
-              <input type="text" class="form-control" id="playlist-album" />
-            </div>
-            <li>Song:</li>
-            <div class="col-sm-12">
-              <input type="text" class="form-control" id="playlist-song" />
-            </div> -->
 
             <button
               id="search-button"
@@ -92,7 +83,6 @@
           >
             Add
           </button>
-
         </div>
     </div>
   </div>
@@ -104,21 +94,37 @@
     <div class="row">
     <div class="single">
             <!-- <div class="col-8 border p-3"> -->
-                <h3 id="playlist-name">Playlist Name</h3>
-                <div id="track-1" class="track-active">
-                <img id="album-cover" src="/Users/mchong/bootcamp/projects/JoyRide/assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
+                <!-- <h3 id="playlist-name">Playlist Name</h3> -->
+                <div id="track" class="track-active">
+                <img id="album-cover" src="https://e-cdns-images.dzcdn.net/images/cover/7991a7b1b817059d7df1f846d0e29b5d/250x250-000000-80-0-0.jpg" alt="picture of album cover">
             </div>
                 <div id="track-info">
-                    <h4>Current Song Name</h4>
-                    <h4>Current Artist</h4>
-                    <h4>Current Album</h4>
+                    <!-- <span class="artist"></span> – <span class="title"></span> -->
+                    <!-- <h4>Current Song Name</h4>
+                    <h4>Current Artist</h4> -->
+                    <!-- <h4>Current Album</h4> -->
+                    <li id="song-name">Song</li>
+                    <li id="artist-name">Artist</li>
+                    <!-- <li id="album-name">Album</li> -->
+
                 </div>
-                
             </div>
-              <!-- <li id="song-name">Song</li>
-              <li id="artist-name">Artist</li>
-              <li id="album-name">Album</li> -->
+    
               <div class="audio-player">
+            
+                <!-- <source id="track-Id" src="https://cdns-preview-0.dzcdn.net/stream/c-09722e1b2f3579df2c089425515375fc-6.mp3"> -->
+    
+                
+                <!-- <audio controls>
+                    <source id="current-track" src="https://cdns-preview-0.dzcdn.net/stream/c-09722e1b2f3579df2c089425515375fc-6.mp3">
+                  </audio> -->
+                  
+                  <!-- <iframe src="" title="current-track"></iframe> -->
+
+                  <!-- <embed src="https://www.computerhope.com/clouds.mid" 
+       align="baseline" border="0" width="145" 
+       height="60" autostart="false" loop="true"> -->
+
               <p class="time">00:00</p>
               <div class="seekbar-container"><div class="seekbar-inner" style="width: 0%"></div></div>
                 <div id="audio-player-buttons" class="container">
@@ -130,7 +136,7 @@
         </div>
     </div>
 
-        <!-- <div id="track-2" class="track-active">
+        <!-- <div id="track-2" class="track-next">
             <h3 id="playlist-name">Playlist Name</h3>
             <img id="album-cover" src="/Users/mchong/bootcamp/projects/JoyRide/assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
             <div id="track-info">
@@ -155,15 +161,24 @@
         </div>
     </div> -->
 
-       
+       <!-- projects/JoyRide/assets/mp3/.24 _Cripple Creek_.mp3.icloud -->
 
     <ul class="list">
         <li class="active" id="#track-1">
-            <img id="album-cover-queue" src="/Users/mchong/bootcamp/projects/JoyRide/assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
+            <img id="album-cover-queue" src="https://e-cdns-images.dzcdn.net/images/cover/7991a7b1b817059d7df1f846d0e29b5d/250x250-000000-80-0-0.jpg" alt="picture of album cover">
             <div id="track-info-queue">
                 <h4>Song Name</h4>
                 <h4>Artist</h4>
-                <h4>Album</h4>
+                <!-- <h4>Album</h4> -->
+            </div>
+            <span>0:00</span>
+        </li>
+        <li class="active" id="#track-2">
+            <img id="album-cover-queue" src="https://e-cdns-images.dzcdn.net/images/cover/3865464cb770bd667d559d880ab27da7/250x250-000000-80-0-0.jpg" alt="picture of album cover">
+            <div id="track-info-queue">
+                <h4>Song Name</h4>
+                <h4>Artist</h4>
+                <!-- <h4>Album</h4> -->
             </div>
             <span>0:00</span>
         </li>
@@ -172,7 +187,7 @@
             <div id="track-info-queue">
                 <h4>Song Name</h4>
                 <h4>Artist</h4>
-                <h4>Album</h4>
+                <!-- <h4>Album</h4> -->
             </div>
             <span>0:00</span>
         </li>
@@ -188,3 +203,34 @@
   
 </body>
 </html>
+
+<li song="https://cdns-preview-0.dzcdn.net/stream/c-09722e1b2f3579df2c089425515375fc-6.mp3" cover=
+"https://e-cdns-images.dzcdn.net/images/cover/7991a7b1b817059d7df1f846d0e29b5d/250x250-000000-80-0-0.jpg" album="How I Got Over" artist="The Roots">How I Got Over<li>
+
+<li song="https://cdns-preview-a.dzcdn.net/stream/c-a26da0c08805bab6a03e7e2dac995aef-1.mp3" cover=
+"https://e-cdns-images.dzcdn.net/images/cover/7991a7b1b817059d7df1f846d0e29b5d/250x250-000000-80-0-0.jpg" album="Ain't A Damn Thing Changed" artist="Nice & Smooth">Sometimes I Rhyme Slow<li>
+
+<li song="https://cdns-preview-2.dzcdn.net/stream/c-2f97aa752a06ab1160432fbb26e219d6-2.mp3" cover=
+"https://e-cdns-images.dzcdn.net/images/cover/8d8aed496082534d234b9ffda7c3170c/250x250-000000-80-0-0.jpg" album="Brown & Proud" artist="Lighter Shade Of Brown">On A Sunday Afternoon<li>    
+
+<li song="https://cdns-preview-5.dzcdn.net/stream/c-58dfd71bddb94cdf5605ebe2f06e02ca-6.mp3" cover=
+"https://e-cdns-images.dzcdn.net/images/cover/c52afaf9cbc4671a1b1ee18009db19b5/250x250-000000-80-0-0.jpg" album="Brown & Proud" artist="OutKast">ATLiens<li>   
+    
+<li song="https://cdns-preview-b.dzcdn.net/stream/c-bcb4e3e13524bff75a589d392aa2a1f7-7.mp3" cover=
+"https://e-cdns-images.dzcdn.net/images/cover/d1c7acce114322cb3ce0340d751056e8/250x250-000000-80-0-0.jpg" album="People's Instinctive Travels and the Paths of Rhythm (25th Anniversary Edition)" artist="A Tribe Called Quest">Can I Kick It?<li>   
+
+<li song="https://cdns-preview-2.dzcdn.net/stream/c-25ed20f8c647894c4a35c392811c8219-1.mp3" cover=
+"https://e-cdns-images.dzcdn.net/images/cover/c5344c43f40980999859d4f0a080f555/250x250-000000-80-0-0.jpg" album="Galleries" artist="Visionaries">Love (Hip Hop)<li>  
+
+<li song="https://cdns-preview-8.dzcdn.net/stream/c-89215045266fcc096708e7377c60dcde-5.mp3" cover=
+"https://e-cdns-images.dzcdn.net/images/cover/cd722f622931b2f7754834ef109b5785/250x250-000000-80-0-0.jpg" album="The Don Killuminati: The 7 Day Theory" artist="2Pac">To Live And Die In L.A.<li>  
+
+<li song="https://cdns-preview-5.dzcdn.net/stream/c-53c7d1924e34351362a7b9046f4d5c9a-3.mp3" cover="https://e-cdns-images.dzcdn.net/images/cover/31fb2dc977d96c86e7123900f49eb37f/250x250-000000-80-0-0.jpg" album="The Don Killuminati: The 7 Day Theory" artist="The Dove Shack">Summertime In The LBC<li>  
+
+<li song="https://cdns-preview-b.dzcdn.net/stream/c-b5f6469d0e7b67675587b8a21b9e2f00-12.mp3" cover=
+"https://e-cdns-images.dzcdn.net/images/cover/77812f497bc35690f4dab2269cd76424/250x250-000000-80-0-0.jpg" album="The Documentary" artist="The Game">Hate It Or Love It<li>  
+    
+<li song="https://cdns-preview-d.dzcdn.net/stream/c-d4aacaf9baa1df482b157894a6e5301a-6.mp3" cover="https://e-cdns-images.dzcdn.net/images/cover/2381cff9908f84c364300efb24a15695/250x250-000000-80-0-0.jpg" album="Poverty's Paradise" artist="Naughty By Nature">Feel Me Flow<li>  
+
+   
+    
