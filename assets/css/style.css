@@ -111,10 +111,6 @@ hr{
   background-repeat: no-repeat;
 }
 =======
-body {
-    margin: 0;
-    padding: 0;
-  }
 
   #my-map {
     position: absolute;
