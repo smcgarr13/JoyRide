@@ -13,6 +13,7 @@ if(localStorage.getItem("StartLatitude") === null){
   var StrtRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+StartLatitude+"&lon="+StartLongitude+"&apiKey="+myAPIKey;
 }
 
+
 if(localStorage.getItem("EndLatitude")=== null){
 }
 let EndLatitude = localStorage.getItem("EndLatitude");
