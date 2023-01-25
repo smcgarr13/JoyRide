@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Padyakke+Expanded+One&family=Stint+Ultra+Expanded&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&family=Poppins:wght@100;200;400&display=swap"
+      rel="stylesheet"
+    />
+
+   <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="./assets/css/music_op_2.css" />
+    <title>JoyRide | Music</title>
+  </head>
+  <body>
+<!-- referenced: https://www.youtube.com/watch?v=t0Qp3McD3j0 -->
+<div id="container">
+    <div id="audio img">
+        <img class="cover">
+    </div>
+    <div id="audio-player">
+    <div id="audio-info">
+    <span class="artist"></span> – <span class="title"></span>
+    </div>
+<!-- <input id="volume" type="range" min="0" max="0" value="5"> -->
+<br>
+
+<div class="audio-player">
+    <p class="time">00:00</p>
+    <div class="seekbar-container"><div class="seekbar-inner" style="width: 0%"></div></div>
+    <span id="duration"></span>
+</div>   
+    <!-- <div id="tracker">
+        <div id="progressbar">
+            <span id="progress"></span>
+        </div>
+        <span id="duration"></span>
+    </div> -->
+    <div class="clearfix"></div>
+
+<div id="audio-buttons">
+    <!-- <div class="prev"><i class="fas fa-backward"></i></div> -->
+    <button id="play"></button>
+    <!-- <div class="play"><i class="fas fa-play"></i></div> -->
+    <!-- <div class="next"><i class="fas fa-forward"></i></div> -->
+</div>
+<div class="clearfix"></div>
+
+<ul id="playlist">
+    <!-- <li song=
+"The Roots – How I Got Over" cover=
+"https://e-cdns-images.dzcdn.net/images/cover/7991a7b1b817059d7df1f846d0e29b5d/250x250-000000-80-0-0.jpg" artist="The Roots>How I Got Over<li> -->
+        <li song="https://cdns-preview-0.dzcdn.net/stream/c-09722e1b2f3579df2c089425515375fc-6.mp3" cover=
+        "https://e-cdns-images.dzcdn.net/images/cover/7991a7b1b817059d7df1f846d0e29b5d/250x250-000000-80-0-0.jpg" artist="The Roots">How I Got Over<li>
+</ul>
+</div>
+</div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./assets/js/music.js"></script>
+  
+  </body>
+  </html>
+
+
+  <li song="https://cdns-preview-0.dzcdn.net/stream/c-09722e1b2f3579df2c089425515375fc-6.mp3" cover=
+  "https://e-cdns-images.dzcdn.net/images/cover/7991a7b1b817059d7df1f846d0e29b5d/250x250-000000-80-0-0.jpg" album="How I Got Over" artist="The Roots">How I Got Over<li>
+
+  <li song="https://cdns-preview-a.dzcdn.net/stream/c-a26da0c08805bab6a03e7e2dac995aef-1.mp3" cover=
+  "https://e-cdns-images.dzcdn.net/images/cover/7991a7b1b817059d7df1f846d0e29b5d/250x250-000000-80-0-0.jpg" album="Ain't A Damn Thing Changed" artist="Nice & Smooth">Sometimes I Rhyme Slow<li>
+
+  <li song="https://cdns-preview-2.dzcdn.net/stream/c-2f97aa752a06ab1160432fbb26e219d6-2.mp3" cover=
+  "https://e-cdns-images.dzcdn.net/images/cover/8d8aed496082534d234b9ffda7c3170c/250x250-000000-80-0-0.jpg" album="Brown & Proud" artist="Lighter Shade Of Brown">On A Sunday Afternoon<li>    
+
+  <li song="https://cdns-preview-5.dzcdn.net/stream/c-58dfd71bddb94cdf5605ebe2f06e02ca-6.mp3" cover=
+  "https://e-cdns-images.dzcdn.net/images/cover/c52afaf9cbc4671a1b1ee18009db19b5/250x250-000000-80-0-0.jpg" album="Brown & Proud" artist="OutKast">ATLiens<li>   
+      
+  <li song="https://cdns-preview-b.dzcdn.net/stream/c-bcb4e3e13524bff75a589d392aa2a1f7-7.mp3" cover=
+  "https://e-cdns-images.dzcdn.net/images/cover/d1c7acce114322cb3ce0340d751056e8/250x250-000000-80-0-0.jpg" album="People's Instinctive Travels and the Paths of Rhythm (25th Anniversary Edition)" artist="A Tribe Called Quest">Can I Kick It?<li>   
