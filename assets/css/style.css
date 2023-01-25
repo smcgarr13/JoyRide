@@ -1,3 +1,116 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: #000000;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  font-weight: bold;
+  color: #C2F102;
+}
+.navbar{
+  background-color: #000000;
+}
+html{
+  overflow: hidden;
+}
+header{
+  background-color: aliceblue;
+}
+.app-name{
+  color: #C2F102;
+  font-size: 9rem;
+  font-family: 'Courier Prime', monospace;
+  margin-top: 30px;
+  transform: scale(1.5, 2);
+        -webkit-transform: scale(1.5, 2);
+        -moz-transform: scale(1.5, 2);
+        -o-transform: scale(1.5, 2);
+}
+.rider-con{
+  position: absolute;
+  bottom: 0px;
+}
+.nav-logo{
+  color: #C2F102;
+  font-weight: bold;
+  font-size: 2rem;
+  font-family: 'Courier Prime', monospace;
+}
+.rider{
+    height: 40vw;
+  width: 90vw;
+  opacity: 0.7;
+}
+.router-btn{
+  color: #C2F102;
+}
+.navbar .midnav {
+  text-align: center;
+  display: block;
+  width: 90%;
+}
+/* .burger-menu{
+  visibility: hidden;
+} */
+.navbar .midnav > .navbar-item,
+.navbar .midnav .navbar-link {
+  display: inline-block;
+}
+.midpage{
+  height: 95vh;
+
+}
+.bordermenu{
+  border-right: solid 2px #C2F102;
+}
+.weather{
+  background-image: url(../images/weather_placeholder.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.menulink{
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.deezer{
+  background-image: url(../images/deezer_placeholder.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.misc{
+  background-image: url(../images/misc_placeholder.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+hr{
+  height: 2px;
+  background-color: #C2F102;
+}
+
+.weather,.deezer,.misc{
+  cursor: pointer;
+  position: relative;
+}
+.weather>a ,.deezer>a ,.misc>a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.api-display{
+  background-image: url(../images/map_placeholder.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+=======
 body {
     margin: 0;
     padding: 0;
