@@ -53,9 +53,9 @@ header{
   display: block;
   width: 90%;
 }
-/* .burger-menu{
+.hide{
   visibility: hidden;
-} */
+}
 .navbar .midnav > .navbar-item,
 .navbar .midnav .navbar-link {
   display: inline-block;
@@ -67,10 +67,13 @@ header{
 .bordermenu{
   border-right: solid 2px #C2F102;
 }
+i{
+  color: #C2F102;
+}
 .weather{
   background-image: url(../images/weather_placeholder.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: y-repeat;
 }
 .menulink{
   text-decoration: none;
@@ -80,14 +83,10 @@ header{
 }
 .deezer{
   background-image: url(../images/deezer_placeholder.png);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: y-repeat;
 }
-.misc{
-  background-image: url(../images/misc_placeholder.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+
 hr{
   height: 2px;
   background-color: #C2F102;
@@ -110,3 +109,47 @@ hr{
   background-size: cover;
   background-repeat: no-repeat;
 }
+.txt{
+  color: #C2F102;
+}
+.form-data{
+  border: solid 1px #C2F102;
+  background-color: #000000;
+  color: #ffffff;
+}
+.form-data:hover{
+  border:solid 2px #C2F102;
+}
+.button{
+  background-color: #C2F102;
+  border: none;
+}
+.button:hover{
+  background-color: #000000;
+  border: solid 2px #C2F102;
+  color: #C2F102;
+}
+
+.fa-bars{
+  font-size: 2rem;
+}
+/* ::placeholder{
+  color: #C2F102;
+  opacity: 1;
+}
+
+:-ms-input-placeholder{
+  color: #C2F102;
+  opacity: 1;
+}
+
+:-moz-placeholder{
+color: #C2F102;
+  opacity: 1;
+}
+
+::-moz-placeholder{
+  color: #C2F102;
+  opacity: 1;
+} */
+
