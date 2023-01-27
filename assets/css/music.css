@@ -1,129 +1,26 @@
-*{
+* {
   box-sizing: border-box;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
-body{
-  background-color: #000000;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-  font-weight: bold;
-  color: #C2F102;
+
+body {
+  margin: 0;
+  background-color: black;
+  color: aliceblue;
+  justify-content: space-between;
   font-family: "Stint Ultra Expanded", "Padyakke Expanded One", sans-serif;
+  font-size: 16px;
   font-family: "Montserrat", "Poppins", sans-serif;
-  /* font-size: 16px; */
-}
-.navbar{
-  background-color: #000000;
-}
-html{
-  overflow: hidden;
-}
-header{
-  background-color: aliceblue;
-}
-.app-name{
-  color: #C2F102;
-  font-size: 9rem;
-  font-family: 'Courier Prime', monospace;
-  margin-top: 30px;
-  transform: scale(1.5, 2);
-        -webkit-transform: scale(1.5, 2);
-        -moz-transform: scale(1.5, 2);
-        -o-transform: scale(1.5, 2);
-}
-.rider-con{
-  position: absolute;
-  bottom: 0px;
-}
-.nav-logo{
-  color: #C2F102;
-  font-weight: bold;
-  font-size: 2rem;
-  font-family: 'Courier Prime', monospace;
-}
-.rider{
-    height: 40vw;
-  width: 90vw;
-  opacity: 0.7;
-}
-.router-btn{
-  color: #C2F102;
-}
-.navbar .midnav {
-  text-align: center;
-  display: block;
-  width: 90%;
-}
-/* .burger-menu{
-  visibility: hidden;
-} */
-.navbar .midnav > .navbar-item,
-.navbar .midnav .navbar-link {
-  display: inline-block;
-}
-.midpage{
-  height: 95vh;
-
-}
-.bordermenu{
-  border-right: solid 2px #C2F102;
-}
-.weather{
-  background-image: url(../images/weather_placeholder.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.menulink{
-  text-decoration: none;
-  display: inline-block;
+  font-size: 16px;
   width: 100%;
-  height: 100%;
-}
-.deezer{
-  background-image: url(../images/deezer_placeholder.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.misc{
-  background-image: url(../images/misc_placeholder.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-hr{
-  height: 2px;
-  background-color: #C2F102;
+  height: 100vh;
 }
 
-.weather,.deezer,.misc{
-  cursor: pointer;
-  position: relative;
+#create-playlist {
+  text-align: start;
 }
-.weather>a ,.deezer>a ,.misc>a {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-.api-display{
-  background-image: url(../images/map_placeholder.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-=======
-
-  #my-map {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-  }
-
-/* audio player */
-  .container-main {
+.container-main {
   margin-top: 10px;
   padding: 0 8px 10px 8px;
   width: 300px;
@@ -135,6 +32,12 @@ hr{
   border-radius: 5px;
 }
 
+h3 {
+  margin-top: 20px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
 .single {
   justify-content: center;
   width: 100%;
@@ -207,10 +110,11 @@ ul {
   margin-top: 5px;
 }
 
-#song-name {
-  margin-top: 0px;
+li {
+  margin-top: 10px;
   list-style-type: none;
-  font-size: 14px;
+  font-size: 12px;
+
   display: flex;
   align-items: center;
   padding: 4px;
@@ -219,16 +123,17 @@ ul {
   border-radius: 5px;
 }
 
-#artist-name {
+#song-name {
+  margin-top: 0px;
+  list-style-type: none;
+  font-size: 14px;
+}
+
+#artist-name,
+#album-name {
   margin-top: 0px;
   list-style-type: none;
   font-size: 10px;
-  display: flex;
-  align-items: center;
-  padding: 4px;
-  position: relative;
-  margin-bottom: 5px;
-  border-radius: 5px;
 }
 
 .active {
@@ -259,7 +164,7 @@ audio {
   color: chartreuse;
 }
 
-/* #search-button,
+#search-button,
 #create-button,
 #add-button {
   margin-top: 10px;
@@ -267,10 +172,10 @@ audio {
   background-color: chartreuse;
   border: none;
   border-radius: 5px;
-} */
+}
 
-/* input {
+input {
   background-color: darkslategray;
   color: aliceblue;
   border: 1px solid chartreuse;
-} */
+}
