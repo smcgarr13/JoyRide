@@ -273,34 +273,6 @@ ul {
   border-radius: 5px;
 }
 
-/* .active {
-  border: 1px solid chartreuse;
-  width: 300px;
-  padding: 0 15px 0 15px;
-} */
-/* 
-#track-info-queue {
-  padding-left: 10px;
-  width: 80%;
-  margin: 15px 0 10px 28px;
-  font-size: 12px;
-}
-
-#album-cover-queue {
-  width: 80px;
-  border-radius: 10px;
-}
-
-.track-active {
-  display: flex;
-}
-
-audio {
-  background: black;
-  border-radius: 5px;
-  color: chartreuse;
-}
- */
 /* #search-button,
 #create-button,
 #add-button {
