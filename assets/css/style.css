@@ -273,12 +273,12 @@ ul {
   border-radius: 5px;
 }
 
-.active {
+/* .active {
   border: 1px solid chartreuse;
   width: 300px;
   padding: 0 15px 0 15px;
-}
-
+} */
+/* 
 #track-info-queue {
   padding-left: 10px;
   width: 80%;
@@ -300,7 +300,7 @@ audio {
   border-radius: 5px;
   color: chartreuse;
 }
-
+ */
 /* #search-button,
 #create-button,
 #add-button {
