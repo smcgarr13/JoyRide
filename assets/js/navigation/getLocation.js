@@ -10,8 +10,8 @@ let StartLongitude = localStorage.getItem("StartLongitude");
 const myAPIKey = "ed917d605c814a68adc8a1a68d0a3c97";
 const ipGeoAPI_url = "https://api.geoapify.com/v1/ipinfo?&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
 var StrtRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+StartLatitude+"&lon="+StartLongitude+"&apiKey="+myAPIKey; 
-const StrtGeoCodingAPI = "https://api.geoapify.com/v1/geocode/search?text="+ StartAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
-const EndGeoCodingAPI = "https://api.geoapify.com/v1/geocode/search?text="+ EndAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
+const StrtGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+ StartAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
+const EndGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+ EndAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
 // Note
 // var StrtRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+StartLatitude+"&lon="+StartLongitude+"&apiKey="+myAPIKey; 
 
@@ -59,13 +59,22 @@ async function geoCodingAPI(url){
   localStorage.setItem("StartLongitude",longitude);
   localStorage.setItem("StartLatitude",latitude);
 }
-
+// End Address
+async function EndGeoCodingAPI(url){
+  const response = await fetch(url);
+  const data = await response.json();
+  console.log(data);
+  const latitude = data.features[0].properties.lat;
+  const longitude = data.features[0].properties.lon;
+  localStorage.setItem("EndLongitude",longitude);
+  localStorage.setItem("EndLatitude",latitude);
+}
 
 
 // Function Implementation
 StartAddress = (localStorage.getItem("StartAddress"));
 console.log(StartAddress);
-geoCodingAPI(StrtGeoCodingAPI);
+geoCodingAPI(StrtGeoCodingAPI_url);
 
 if(localStorage.getItem("StartAddress") === null){
   IpGetLoc(ipGeoAPI_url);
@@ -85,7 +94,7 @@ if(localStorage.getItem("StartAddress") === null){
   
   }
   StrAdrStrng = StrtAddressArr.join(""); 
-  geoCodingAPI(StrtGeoCodingAPI);
+  geoCodingAPI(StrtGeoCodingAPI_url);
   let StartLatitude = localStorage.getItem("StartLatitude");
   let StartLongitude = localStorage.getItem("StartLongitude");
 }
@@ -105,8 +114,8 @@ if(localStorage.getItem("EndAddress")=== null){
   
   }
   EndAdrStrng = EndAddressArr.join(""); 
-  GeoCodingAPI(EndGeoCodingAPI);
+  EndGeoCodingAPI(EndGeoCodingAPI_url);
   let EndLatitude = localStorage.getItem("EndLatitude");
   let EndLongitude = localStorage.getItem("EndLongitude");
-  var EndRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+StartLatitude+"&lon="+StartLongitude+"&apiKey="+myAPIKey;
+  var EndRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+EndLatitude+"&lon="+EndLongitude+"&apiKey="+myAPIKey;
 }
