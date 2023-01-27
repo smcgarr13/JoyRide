@@ -32,8 +32,6 @@ async function routtingAPI(url){
         coordinates.push(waypoints[i].location) 
     }
     localStorage.setItem("RouteCoordinates",JSON.stringify(coordinates))
-
-
     var routeArr = data.features[0].properties.legs[0].steps
     var routeInst = [];    
     for(let k=0;k<routeArr.length;k++){

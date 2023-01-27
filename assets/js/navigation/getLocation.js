@@ -10,7 +10,7 @@ let StartLongitude = localStorage.getItem("StartLongitude");
 const myAPIKey = "ed917d605c814a68adc8a1a68d0a3c97";
 const ipGeoAPI_url = "https://api.geoapify.com/v1/ipinfo?&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
 var StrtRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+StartLatitude+"&lon="+StartLongitude+"&apiKey="+myAPIKey; 
-const StrtGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+ StartAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
+const StrtGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+StartAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
 const EndGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+ EndAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
 // Note
 // var StrtRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+StartLatitude+"&lon="+StartLongitude+"&apiKey="+myAPIKey; 
@@ -36,8 +36,10 @@ async function StrtAdrgetLoc(url){
     const data = await response.json();
     // console.log(data);
     const StrtAddress1 = data.features[0].properties.address_line1;
+    console.log(StrtAddress1);
     const StrtAddress2 = data.features[0].properties.address_line2;
-    let StrtAddress = StrtAddress1 + StrtAddress2;
+    let StrtAddress = StrtAddress1 +" "+StrtAddress2;
+    console.log(StrtAddress);
     localStorage.setItem("StartAddress",StrtAddress);
 }
 // async function EndAdrgetLoc(url){
@@ -72,9 +74,6 @@ async function EndGeoCodingAPI(url){
 
 
 // Function Implementation
-StartAddress = (localStorage.getItem("StartAddress"));
-console.log(StartAddress);
-geoCodingAPI(StrtGeoCodingAPI_url);
 
 if(localStorage.getItem("StartAddress") === null){
   IpGetLoc(ipGeoAPI_url);
@@ -84,16 +83,20 @@ if(localStorage.getItem("StartAddress") === null){
   StrtAdrgetLoc(StrtRvrsGeoApi);
 }else{ 
   StartAddress = localStorage.getItem("StartAddress");
+  console.log(StartAddress)
   StartAddress = StartAddress.replaceAll(',','');
   StartAddress = StartAddress.replaceAll('.','');
   StartAddress = StartAddress.split(" ");
+
   let StrtAddressArr = [];
   StrtAddressArr.push(StartAddress[0]);
   for(let i = 1;i<StartAddress.length;i++){
     StrtAddressArr.push("%20"+StartAddress[i]);
   
   }
+
   StrAdrStrng = StrtAddressArr.join(""); 
+  console.log(StrAdrStrng);
   geoCodingAPI(StrtGeoCodingAPI_url);
   let StartLatitude = localStorage.getItem("StartLatitude");
   let StartLongitude = localStorage.getItem("StartLongitude");
