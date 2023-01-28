@@ -82,7 +82,7 @@ async function EndGeoCodingAPI(url){
 
 // Function Implementation
 createRouteBtn.addEventListener('click',function(){
-if(localStorage.getItem("StartAddress") === undefined){
+if(localStorage.getItem("StartAddress") === null){
   IpGetLoc(ipGeoAPI_url);
   StartLatitude = localStorage.getItem("StartLatitude");
   StartLongitude = localStorage.getItem("StartLongitude");
@@ -110,7 +110,7 @@ if(localStorage.getItem("StartAddress") === undefined){
   let StartLongitude = localStorage.getItem("StartLongitude");
 }
 
-if(localStorage.getItem("EndAddress")=== undefined){
+if(localStorage.getItem("EndAddress")=== null){
   // Have to add modal to alert user that  
 }else{
 
