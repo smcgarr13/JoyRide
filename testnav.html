@@ -1,5 +1,6 @@
+
 <html>
-<header>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -17,11 +18,22 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/Rider-App/assets/css/style.css" />
+
     <title>TestHTML for IP location</title>   
-</header>
+    <!-- <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
+    <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' /> -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
 <body>
-  <div id="my-map"></div>
+  <!-- <div id="my-map"></div> -->
+  <input type="text" id="start-address" name="start-route" placeholder="Start Location"><br></br>
+  <input type="text" id="end-address" name="end-route" placeholder="End Location"><br></br>
+  <button type ="button" id="route-btn">RouteButton</button>
+  <p>
+    <ul id="route-directions">
+      <li></li>
+    </ul>
+  </p>
   <div src></div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script
@@ -29,11 +41,9 @@
       integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
       crossorigin="anonymous"
     ></script>
-    
-    <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
-    <!-- <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' /> -->
 
-    <script src="/Rider-App/assets/js/navigation/getLocation.js"></script>
+    <script src="/assets/js/navigation/getLocation.js"></script>
+    <script src="/assets/js/navigation/map.js"></script>
 </body>
 
 
