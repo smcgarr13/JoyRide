@@ -4,23 +4,155 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JoyRide</title>
+  <title>Home</title>
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="/assets/js/navigation/getLocation.js"></script>
   <script src="/assets/js/navigation/map.js"></script>
+  <script defer src="./assets/js/script.js"></script>
 </head>
-
 <body>
-  <div class="container">
-   <h1 class="has-text-centered app-name">JoyRide</h1>
-  </div>
+  <header>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#" onclick="openCLoseMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </a>
+      </div>
+      
+      <div class="navbar-brand midnav">
+        <a class="navbar-item" href="#">
+          <span class="nav-logo">JoyRide</span>
+        </a>
+      </div>
 
-  <figure class="rider-con">   
-    <img class="rider" src="./assets/images/motobiker.png" alt=""  >
-  </figure>
+      
+    
+      <div class="navbar-menu">
+       
+        </div>
+    
+        <div class="navbar-end">
+          <div class="navbar-item">
+            
+            <a class="router-btn" id="route-btn" onclick="startRoute()">
+              <strong>Create Route</strong>
+            </a>
+            
+          </div>
+        </div>
+      
+    </nav>
+  </header>
+  <div class="tile is-ancestor midpage">
+    <div class="tile is-parent is-2 is-vertical burger-menu hide">
+      <div class="tile is-child weather">
+        <a href="#">
+          
+        </a>
+      </div>
+      <span>Weather Forecast</span>
+      <hr>
+      <div class="tile is-child deezer">
+        <a href="#">
+          
+          <div class="container-main">
+            <div class="row">
+            <div class="single">
+                    <!-- <div class="col-8 border p-3"> -->
+                        <div id="track" class="track-active">
+                        <img id="album-cover" src="https://e-cdns-images.dzcdn.net/images/cover/7991a7b1b817059d7df1f846d0e29b5d/250x250-000000-80-0-0.jpg" alt="picture of album cover">
+                    </div>
+                        <div id="track-info">
+                            <li id="song-name">Song</li>
+                            <li id="artist-name">Artist</li>
+                            <!-- <li id="album-name">Album</li> -->
+                        </div>
+                    </div>
+            
+                      <div class="audio-player">
+                      <p class="time">00:00</p>
+                      <div class="seekbar-container"><div class="seekbar-inner" style="width: 0%"></div></div>
+                        <div id="audio-player-buttons" class="container">
+                            <div class="prev"><i class="fas fa-backward"></i></div>
+                            <div class="play"><i class="fas fa-play"></i></div>
+                            <div class="next"><i class="fas fa-forward"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!-- Next Track -->
+                <li class="active" id="#track-2">
+                    <img id="album-cover-queue" src="./assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
+                    <div id="track-info-queue">
+                        <h4>Song Name</h4>
+                        <h4>Artist</h4>
+                    </div>
+                    <span>0:00</span>
+                </li>
+                <li class="active" id="#track-2">
+                    <img id="album-cover-queue" src="./assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
+                    <div id="track-info-queue">
+                        <h4>Song Name</h4>
+                        <h4>Artist</h4>
+                    </div>
+                    <span>0:00</span>
+                </li>
+            </ul>
+        
+        </div>
+
+        </a>
+      </div>
+    <div class="tile is-parent is-8 api-display">
+          <ul id="route-directions">
+          </ul>
+        </div>
+        <div class="tile is-parent is-vertical router-form hide">
+        
+          <div class="field">
+            <label class="label txt">Starting Location</label>
+            <div class="control has-icons-left is-expanded">
+              <input class="input form-data" id="start-address" placeholder="Starting Location" type="text">
+              <span class="icon is-small is-left">
+                <i class="fa-solid fa-location-dot"></i>
+              </span>
+            </div>
+
+          </div>
+          
+
+          <div class="field">
+            <label class="label txt">Destination</label>
+            <div class="control has-icons-left ">
+              <input class="input form-data" id="end-address" placeholder="Destination" type="text">
+              <span class="icon is-small is-left">
+                <i class="fa-solid fa-location-crosshairs"></i>
+              </span>
+            </div>
+
+        
+          </div>
+          <div class="control buttons is-right">
+            <button class="button"> 
+              Create Route
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+
+<!-- Shannon code -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="./assets/js/music.js"></script>
+
+
 </body>
 </html>
-
