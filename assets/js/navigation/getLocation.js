@@ -1,6 +1,7 @@
 // Fetch Location Object from Geolocation API  
 // Start changing the urls to make them dynamic with stored variables.
-// API +key variable
+// API key variations + Coordinate Variables
+
 let EndLatitude;
 let EndLongitude;
 let StartAddress;
@@ -12,10 +13,11 @@ const ipGeoAPI_url = "https://api.geoapify.com/v1/ipinfo?&apiKey=ed917d605c814a6
 var StrtRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+StartLatitude+"&lon="+StartLongitude+"&apiKey="+myAPIKey; 
 const StrtGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+StartAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
 const EndGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+ EndAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
+
+var createRouteBtn = document.getElementsByClassName("router-btn");
 // Note
 // var StrtRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+StartLatitude+"&lon="+StartLongitude+"&apiKey="+myAPIKey; 
 
-// Coordinate Variables
 
 // Function to fetch api information then locally store that information under latitude and longitude.
 async function  IpGetLoc(url){
