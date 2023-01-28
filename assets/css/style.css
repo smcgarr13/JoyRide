@@ -56,9 +56,9 @@ header{
   display: block;
   width: 90%;
 }
-/* .burger-menu{
+.hide{
   visibility: hidden;
-} */
+}
 .navbar .midnav > .navbar-item,
 .navbar .midnav .navbar-link {
   display: inline-block;
@@ -70,10 +70,13 @@ header{
 .bordermenu{
   border-right: solid 2px #C2F102;
 }
+i{
+  color: #C2F102;
+}
 .weather{
   background-image: url(../images/weather_placeholder.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: y-repeat;
 }
 .menulink{
   text-decoration: none;
@@ -83,14 +86,10 @@ header{
 }
 .deezer{
   background-image: url(../images/deezer_placeholder.png);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: y-repeat;
 }
-.misc{
-  background-image: url(../images/misc_placeholder.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+
 hr{
   height: 2px;
   background-color: #C2F102;
@@ -114,6 +113,51 @@ hr{
   background-repeat: no-repeat;
 }
 
+.txt{
+  color: #C2F102;
+}
+.form-data{
+  border: solid 1px #C2F102;
+  background-color: #000000;
+  color: #ffffff;
+}
+.form-data:hover{
+  border:solid 2px #C2F102;
+}
+.button{
+  background-color: #C2F102;
+  border: none;
+}
+.button:hover{
+  background-color: #000000;
+  border: solid 2px #C2F102;
+  color: #C2F102;
+}
+
+.fa-bars{
+  font-size: 2rem;
+}
+/* ::placeholder{
+  color: #C2F102;
+  opacity: 1;
+}
+
+:-ms-input-placeholder{
+  color: #C2F102;
+  opacity: 1;
+}
+
+:-moz-placeholder{
+color: #C2F102;
+  opacity: 1;
+}
+
+::-moz-placeholder{
+  color: #C2F102;
+  opacity: 1;
+} */
+
+
   /* #my-map {
     position: absolute;
     top: 0;
@@ -123,13 +167,13 @@ hr{
 
 /* audio player */
   .container-main {
-  margin-top: 10px;
-  padding: 0 8px 10px 8px;
-  width: 300px;
-  height: 420px;
+/*   margin-top: 10px; */
+  padding: 0 8px 10px 8px; 
+  width: 16vw;
+  height: 40vw;
   align-items: center;
   justify-content: center;
-  border: 1px solid chartreuse;
+  border: none;
   background-color: black;
   border-radius: 5px;
 }
@@ -230,34 +274,6 @@ ul {
   border-radius: 5px;
 }
 
-.active {
-  border: 1px solid chartreuse;
-  width: 300px;
-  padding: 0 15px 0 15px;
-}
-
-#track-info-queue {
-  padding-left: 10px;
-  width: 80%;
-  margin: 15px 0 10px 28px;
-  font-size: 12px;
-}
-
-#album-cover-queue {
-  width: 80px;
-  border-radius: 10px;
-}
-
-.track-active {
-  display: flex;
-}
-
-audio {
-  background: black;
-  border-radius: 5px;
-  color: chartreuse;
-}
-
 /* #search-button,
 #create-button,
 #add-button {
@@ -273,3 +289,4 @@ audio {
   color: aliceblue;
   border: 1px solid chartreuse;
 } */
+
