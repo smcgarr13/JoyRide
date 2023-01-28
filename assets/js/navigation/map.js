@@ -5,21 +5,22 @@ StartLatitude = localStorage.getItem("StartLatitude");
 StartLongitude = localStorage.getItem("StartLongitude");
 EndLatitude = localStorage.getItem("EndLatitude");
 EndLongitude = localStorage.getItem("EndLongitude");
-const myAPIKey = "ed917d605c814a68adc8a1a68d0a3c97";
+const myAPIKey2 = "ed917d605c814a68adc8a1a68d0a3c97";
+var createRouteBtn = document.getElementById("route-btn");
+var directionsList = document.getElementById("route-directions");
 // Create interactive map variable
 
-const map = new maplibregl.Map({
-    container: 'my-map',
-    zoom:6,
-    center:[StartLongitude,StartLatitude],
-    style: `https://maps.geoapify.com/v1/styles/klokantech-basic/style.json?center=lonlat:-1,47&zoom=5&apiKey=`+myAPIKey,
-  });
-  map.addControl(new maplibregl.NavigationControl());
-  
-//  Marker Icon https://api.geoapify.com/v1/icon?type=awesome&color=%2352b74c&size=x-large&icon=tree&noWhiteCircle=true&scaleFactor=2&apiKey=ed917d605c814a68adc8a1a68d0a3c97
-//  Routing
-// To do: write up function to alter url to fit in waypoints
+// const map = new maplibregl.Map({
+//     container: 'my-map',
+//     zoom:6,
+//     center:[StartLongitude,StartLatitude],
+//     style: `https://maps.geoapify.com/v1/styles/klokantech-basic/style.json?center=lonlat:-1,47&zoom=5&apiKey=`+myAPIKey2,
+//   });
+//   map.addControl(new maplibregl.NavigationControl());
+
 var routingUrl = "https://api.geoapify.com/v1/routing?waypoints=50.96209827745463%2C4.414458883409225%7C50.429137079078345%2C5.00088081232559&detaisl=instruction_details&mode=drive&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
+
+var customRoutingUrl = "https://api.geoapify.com/v1/routing?waypoints="+StartLongitude+"%2C"+StartLatitude+"%7C"+EndLongitude+"%2C"+EndLatitude+"&detaisl=instruction_details&mode=drive&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
 async function routtingAPI(url){
     const response = await fetch(url);
     const data = await response.json();
@@ -40,62 +41,24 @@ async function routtingAPI(url){
     localStorage.setItem("routeArr",JSON.stringify(routeArr));
     localStorage.setItem("routeInst",JSON.stringify(routeInst));
 }
-// Map Matching
-
+// Creating Route Inst Dynamic List
     var RouteCoordinates = JSON.parse(localStorage.getItem("RouteCoordinates"));
     var routeWaypoints = JSON.parse(localStorage.getItem("RouteWaypoints"));
-    console.log(routeWaypoints);
-    // let RouteString = [];
-    // RouteString.push(RouteCoordinates[0][0]+"%2C"+RouteCoordinates[0][1]);
-    // console.log(RouteString);
-    // for(let j = 0;j<RouteCoordinates.length;j++){
-    //     RouteString.push()  
-    // }
-    var MapProject = "EPSG:3857";
-    var mapMatchingUrl = `https://api.geoapify.com/v1/mapmatching?key=${myAPIKey}&coordinates=${RouteCoordinates}&projection=${MapProject}`
+    var routeInst = JSON.parse(localStorage.getItem("routeInst"));
+    console.log(routeInst);
 
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-
-var raw = JSON.stringify({"mode":"drive","waypoints":routeWaypoints});
-
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: raw
-};
-
-fetch("https://api.geoapify.com/v1/mapmatching?apiKey=ed917d605c814a68adc8a1a68d0a3c97", requestOptions)
-  .then(response => response.json())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
-async function MapMatching(url){
-    const response = await fetch(url);
-    const data = await response.json;
-    console.log(data);
-}
-// var myHeaders = new Headers();
-// myHeaders.append("Content-Type", "application/json");
-
-// var requestOptions = {
-//   method: 'POST',
-//   headers: myHeaders,
-//   body: raw
-// };
-
-// fetch("https://api.geoapify.com/v1/mapmatching?apiKey=ed917d605c814a68adc8a1a68d0a3c97", requestOptions)
-//   .then(response => response.json())
-//   .then(result => console.log(result))
-//   .catch(error => console.log('error', error));
-// var requestOptions = {
-//     method: 'GET',
-//   };
-  
-//   fetch("https://api.geoapify.com/v1/routing?waypoints=50.96209827745463%2C4.414458883409225%7C50.429137079078345%2C5.00088081232559&mode=drive&apiKey=ed917d605c814a68adc8a1a68d0a3c97", requestOptions)
-//     .then(response => response.json())
-//     .then(result => console.log(result))
-//     .catch(error => console.log('error', error));
+// Writing Button Functionality 
+    createRouteBtn.addEventListener('click',function(){
+     var mapOpacity = document.getElementsByClassName("api-display");
+     mapOpacity.style.opacity = 0.2;
+     routtingAPI(customRoutingUrl); 
+      for(let i =0;i<routeInst.length;i++){
+        var liDir = document.createElement('li');
+        liDir.textContent = [i+1]+"."+routeInst[i].text
+        directionsList.append(liDir); 
+      }
 
 
-routtingAPI(routingUrl);
-MapMatching(mapMatchingUrl);
+    });
+
+  routtingAPI(routingUrl);
