@@ -4,17 +4,18 @@
 
 let EndLatitude;
 let EndLongitude;
-let StartAddress;
-let EndAddress;
-let StartLatitude = localStorage.getItem("StartLatitude");
+let StartAddress = document.getElementById("start-address").value;
+let EndAddress = document.getElementById("end-address").value;
+let StartLatitude = localStorage.getItem("StartLatitude"); 
 let StartLongitude = localStorage.getItem("StartLongitude");
 const myAPIKey = "ed917d605c814a68adc8a1a68d0a3c97";
 const ipGeoAPI_url = "https://api.geoapify.com/v1/ipinfo?&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
 var StrtRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+StartLatitude+"&lon="+StartLongitude+"&apiKey="+myAPIKey; 
-const StrtGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+StartAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
+// const StrtGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+StartAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
 const EndGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+ EndAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
 
-var createRouteBtn = document.getElementsByClassName("router-btn");
+var createRouteBtn = document.getElementById("route-btn");
+
 // Note
 // var StrtRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+StartLatitude+"&lon="+StartLongitude+"&apiKey="+myAPIKey; 
 
@@ -23,7 +24,7 @@ var createRouteBtn = document.getElementsByClassName("router-btn");
 async function  IpGetLoc(url){
     const response = await fetch(url);
     const data = await response.json();
-    // console.log(data);
+    console.log(data);
     const { location} = data;
     const {latitude,longitude} = location;
     const StartLocation = { latitude, longitude};
@@ -58,26 +59,30 @@ async function geoCodingAPI(url){
   const response = await fetch(url);
   const data = await response.json();
   console.log(data);
+  const startCity = data.features[0].properties.city;
   const latitude = data.features[0].properties.lat;
   const longitude = data.features[0].properties.lon;
   localStorage.setItem("StartLongitude",longitude);
   localStorage.setItem("StartLatitude",latitude);
+  localStorage.setItem("startCity",startCity);
 }
 // End Address
 async function EndGeoCodingAPI(url){
   const response = await fetch(url);
   const data = await response.json();
   console.log(data);
+  var startCity = data.features[0].properties.city;
   const latitude = data.features[0].properties.lat;
   const longitude = data.features[0].properties.lon;
   localStorage.setItem("EndLongitude",longitude);
   localStorage.setItem("EndLatitude",latitude);
+  localStorage.setItem("startingCity",startCity);
 }
 
 
 // Function Implementation
-
-if(localStorage.getItem("StartAddress") === null){
+createRouteBtn.addEventListener('click',function(){
+if(localStorage.getItem("StartAddress") === undefined){
   IpGetLoc(ipGeoAPI_url);
   StartLatitude = localStorage.getItem("StartLatitude");
   StartLongitude = localStorage.getItem("StartLongitude");
@@ -85,6 +90,7 @@ if(localStorage.getItem("StartAddress") === null){
   StrtAdrgetLoc(StrtRvrsGeoApi);
 }else{ 
   StartAddress = localStorage.getItem("StartAddress");
+  const StrtGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+StartAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
   console.log(StartAddress)
   StartAddress = StartAddress.replaceAll(',','');
   StartAddress = StartAddress.replaceAll('.','');
@@ -104,7 +110,7 @@ if(localStorage.getItem("StartAddress") === null){
   let StartLongitude = localStorage.getItem("StartLongitude");
 }
 
-if(localStorage.getItem("EndAddress")=== null){
+if(localStorage.getItem("EndAddress")=== undefined){
   // Have to add modal to alert user that  
 }else{
 
@@ -124,3 +130,4 @@ if(localStorage.getItem("EndAddress")=== null){
   let EndLongitude = localStorage.getItem("EndLongitude");
   var EndRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+EndLatitude+"&lon="+EndLongitude+"&apiKey="+myAPIKey;
 }
+});

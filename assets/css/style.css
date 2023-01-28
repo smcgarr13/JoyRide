@@ -113,14 +113,13 @@ hr{
   background-size: cover;
   background-repeat: no-repeat;
 }
-=======
 
-  #my-map {
+  /* #my-map {
     position: absolute;
     top: 0;
     bottom: 0;
     width: 100%;
-  }
+  } */
 
 /* audio player */
   .container-main {

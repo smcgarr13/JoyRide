@@ -20,15 +20,20 @@
     />
 
     <title>TestHTML for IP location</title>   
-    <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
-    <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' />
+    <!-- <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
+    <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' /> -->
     <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
-  <div id="my-map"></div>
-  <div input id="create_route"></div>
-  <div button id="router-btn"></div>
- 
+  <!-- <div id="my-map"></div> -->
+  <input type="text" id="start-address" name="start-route" placeholder="Start Location"><br></br>
+  <input type="text" id="end-address" name="end-route" placeholder="End Location"><br></br>
+  <button type ="button" id="route-btn">RouteButton</button>
+  <p>
+    <ul id="route-directions">
+      <li></li>
+    </ul>
+  </p>
   <div src></div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script
