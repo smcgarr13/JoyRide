@@ -101,6 +101,7 @@ async function getStartWeatherData() {
   }
 
 }
+
   async function getEndWeatherData() {
     const response = await fetch(endWeather);
     const data = await response.json();
@@ -155,6 +156,6 @@ async function getStartWeatherData() {
  
 }
 
-
+// runs autimatically. 
 getStartWeatherData()
 getEndWeatherData()
