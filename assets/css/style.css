@@ -167,7 +167,6 @@ color: #C2F102;
 
 /* audio player */
   .container-main {
-/*   margin-top: 10px; */
   padding: 0 8px 10px 8px; 
   width: 16vw;
   height: 40vw;
@@ -245,13 +244,8 @@ color: #C2F102;
   cursor: pointer;
 }
 
-ul {
-  padding: 0;
-  margin-top: 5px;
-}
-
 #song-name {
-  margin-top: 0px;
+  margin-top: 5px;
   list-style-type: none;
   font-size: 14px;
   display: flex;
@@ -260,10 +254,11 @@ ul {
   position: relative;
   margin-bottom: 5px;
   border-radius: 5px;
+  color: aliceblue;
 }
 
 #artist-name {
-  margin-top: 0px;
+  margin-top: 5px;
   list-style-type: none;
   font-size: 10px;
   display: flex;
@@ -272,21 +267,6 @@ ul {
   position: relative;
   margin-bottom: 5px;
   border-radius: 5px;
-}
-
-/* #search-button,
-#create-button,
-#add-button {
-  margin-top: 10px;
-  padding: 3px 5px;
-  background-color: chartreuse;
-  border: none;
-  border-radius: 5px;
-} */
-
-/* input {
-  background-color: darkslategray;
   color: aliceblue;
-  border: 1px solid chartreuse;
-} */
+}
 
