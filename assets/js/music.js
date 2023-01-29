@@ -175,35 +175,6 @@ $(document).ready(function () {
         $(audio["track"]).on("ended", function () {
           var randomIndex = Math.floor(Math.random() * playlist.length);
           var nextTrack = playlist[randomIndex];
-
-          // const settings = {
-          //   async: true,
-          //   crossDomain: true,
-          //   url:
-          //     "https://deezerdevs-deezer.p.rapidapi.com/search?q=" + nextTrack,
-          //   method: "GET",
-          //   headers: {
-          //     "X-RapidAPI-Key":
-          //       "3be84550c5msh6225c2c3674dcaep112662jsn51bef5314860",
-          //     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-          //   },
-          // };
-
-          // $.ajax(settings).done(function (response) {
-          //   // Update track info/details
-          //   var songName = $("#song-name");
-          //   songName.text(response.data[0].title);
-
-          //   var artistName = $("#artist-name");
-          //   artistName.text(response.data[0].artist.name);
-
-          //   var albumCover = $("#album-cover");
-          //   albumCover.attr("src", response.data[0].album.cover_medium);
-
-          //   // Set next track as source and play
-          //   // audio["track"].src = response.data[0].preview;
-          //   // audio["track"].play();
-          // });
         });
 
         // timeout function
