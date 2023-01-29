@@ -22,7 +22,7 @@
     <title>TestHTML for IP location</title>   
     <!-- <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
     <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' /> -->
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/testnav.css" />
 </head>
 <body>
   <!-- <div id="my-map"></div> -->
@@ -31,9 +31,15 @@
   <button type ="button" id="route-btn">RouteButton</button>
   <p>
     <ul id="route-directions">
-      <li></li>
     </ul>
   </p>
+
+  <div id="EndRouteModal" class="modal">
+  <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Error with Destination,please input it again.</p>
+  </div>
+  </div>
   <div src></div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script
@@ -43,7 +49,7 @@
     ></script>
 
     <script src="/assets/js/navigation/getLocation.js"></script>
-    <script src="/assets/js/navigation/map.js"></script>
+    <!-- <script src="/assets/js/navigation/map.js"></script> -->
 </body>
 
 
