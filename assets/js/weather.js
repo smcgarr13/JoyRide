@@ -10,12 +10,12 @@ var endLat = localStorage.getItem("EndLatitude");
 
 //City name variable to add to for loop. 
 var startingCity = localStorage.getItem("startCity")
-var EndingCity = localStorage.getItem("")
+var EndingCity = localStorage.getItem("endCity")
 
-var longitude = -84.386330;
-var latitude = 33.753746;
+//var longitude = -84.386330;
+//var latitude = 33.753746;
 
-var inputLonLat = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&appid=' + weatherApiKey + '&units=imperial'
+//var inputLonLat = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&appid=' + weatherApiKey + '&units=imperial'
 
 var startWeather = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + startingLat + '&lon=' + startingLong + '&appid=' + weatherApiKey + '&units=imperial'
 
@@ -52,7 +52,7 @@ function getWeatherCondition(weatherCondition) {
 
 
 async function getStartWeatherData() {
-  const response = await fetch(inputLonLat);
+  const response = await fetch(startWeather);
   const data = await response.json();
 
   forecastDiv.textContent = ""
@@ -102,7 +102,7 @@ async function getStartWeatherData() {
 
 }
   async function getEndWeatherData() {
-    const response = await fetch(inputLonLat);
+    const response = await fetch(endWeather);
     const data = await response.json();
   
     
