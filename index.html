@@ -11,9 +11,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+   <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
+    <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' />
   <script defer src="./assets/js/script.js"></script>
-  <script defer src="./assets/js/music.js"></script>
-
+  <script defer src="./assets/js/navigation/getLocation.js"></script>
+  <script defer src="./assets/js/navigation/map.js"></script>
+  <script defer src="./assets/js/weather.js"></script>
 </head>
 <body>
   <header>
@@ -51,51 +54,53 @@
   <div class="tile is-ancestor midpage">
     <div class="tile is-parent is-2 is-vertical burger-menu hide">
       <div class="tile is-child weather">
-        <a href="#" class="js-modal-trigger" data-target="weather-modal">
+        <a href="#">
           
         </a>
       </div>
       <span>Weather Forecast</span>
       <hr>
       <div class="tile is-child deezer">
-        <a href="#" class="js-modal-trigger" data-target="music-modal">
+        <a href="#">
           
-           
-                <!-- Next Track -->
-                <!-- <li class="active" id="#track-2">
-                    <img id="album-cover-queue" src="./assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
-                    <div id="track-info-queue">
-                        <h4>Song Name</h4>
-                        <h4>Artist</h4>
+          <div class="container-main">
+            <div class="single">
+            
+                        <div id="track" class="track-active">
+                        <img id="album-cover" src="./assets/images/deezer_placeholder.png" alt="picture of album cover">
+                        </div>
+                        <div id="track-info">
+                            <li id="song-name">Song</li>
+                            <li id="artist-name">Artist</li>
+                        </div>
+            </div>
+            
+                      <div class="audio-player">
+                      <p class="time">00:00</p>
+                      <div class="seekbar-container"><div class="seekbar-inner" style="width: 0%"></div></div>
+                        <div id="audio-player-buttons" class="container">
+                            <div class="prev"><i class="fas fa-backward"></i></div>
+                            <div class="play"><i class="fas fa-play"></i></div>
+                            <div class="pause"><i class="fas fa-pause"></i></div>
+                            <div class="next"><i class="fas fa-forward"></i></div>
+                        </div>
                     </div>
-                    <span>0:00</span>
-                </li>
-                <li class="active" id="#track-2">
-                    <img id="album-cover-queue" src="./assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
-                    <div id="track-info-queue">
-                        <h4>Song Name</h4>
-                        <h4>Artist</h4>
-                    </div>
-                    <span>0:00</span>
-                </li>
-            </ul> -->
+                </div>
+            </div>
+          
+
         </a>
-
-        </div>
-
-        <span>Deezer Music</span>
-        <hr>
       </div>
-      
     <div class="tile is-parent is-8 api-display">
-          
+          <ul id="route-directions">
+          </ul>
         </div>
         <div class="tile is-parent is-vertical router-form hide">
         
           <div class="field">
             <label class="label txt">Starting Location</label>
             <div class="control has-icons-left is-expanded">
-              <input class="input form-data" type="text">
+              <input type="text" class="input form-data" id="start-address" placeholder="Starting Location" type="text">
               <span class="icon is-small is-left">
                 <i class="fa-solid fa-location-dot"></i>
               </span>
@@ -107,7 +112,7 @@
           <div class="field">
             <label class="label txt">Destination</label>
             <div class="control has-icons-left ">
-              <input class="input form-data" type="text">
+              <input type="text" class="input form-data" id="end-address" placeholder="Destination" type="text">
               <span class="icon is-small is-left">
                 <i class="fa-solid fa-location-crosshairs"></i>
               </span>
@@ -116,7 +121,7 @@
         
           </div>
           <div class="control buttons is-right">
-            <button class="button"> 
+            <button type="button" id="route-btn" class="button"> 
               Create Route
             </button>
 
@@ -124,8 +129,7 @@
 
         </div>
       </div>
-
-      <div class="modal" id="weather-modal">
+   <div class="modal" id="weather-modal">
         <div class="modal-background"></div>
         <div class="modal-card">
           <header class="modal-card-head">
@@ -171,7 +175,7 @@
                   </div>
               </div>
                   <!-- Next Track -->
-                  <!-- <li class="active" id="#track-2">
+<!--                   <li class="active" id="#track-2">
                       <img id="album-cover-queue" src="./assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
                       <div id="track-info-queue">
                           <h4>Song Name</h4>
@@ -193,6 +197,11 @@
           </section>
         </div>
       </div>
-    
+  
+
+<!-- Shannon code -->
+<script src="./assets/js/music.js"></script>
+
+
 </body>
 </html>
