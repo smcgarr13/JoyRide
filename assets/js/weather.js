@@ -7,6 +7,8 @@ var startingLong = localStorage.getItem("StartLongitude");
 var startingLat = localStorage.getItem("StartLatitude");
 var endLong = localStorage.getItem("EndLongitude");
 var endLat = localStorage.getItem("EndLatitude");
+//Don't think this is needed. using create div on this class 
+//var divCard = document.getElementsByClassName('Weather-Display')
 
 //City name variable to add to for loop. 
 var startingCity = localStorage.getItem("startCity")
@@ -21,7 +23,8 @@ var startWeather = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + sta
 
 var endWeather = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + endLat + '&lon=' + endLong + '&appid=' + weatherApiKey + '&units=imperial'
 
-var forecastDiv = document.querySelector("#forecast")
+//var forecastDiv = document.querySelector("#forecast")
+var forecastDiv = document.querySelector(".Weather-Display")
 
 function getWeatherCondition(weatherCondition) {
   if (weatherCondition == "Thunderstorm") {
@@ -55,14 +58,15 @@ async function getStartWeatherData() {
   const response = await fetch(startWeather);
   const data = await response.json();
 
-  forecastDiv.textContent = ""
+  //forecastDiv.textContent = ""
   //var timeLeave = time.value
   //create for loops for all variables to have just needed data for next 5 days 
 
   for (var i = 4; i < data.list.length; i += 8) {
     //everytime the loop is iterated a new empty div is created
-    var divCard = document.createElement('div')
-    divCard.className = "card"
+    //var divCard = document.getElementsByClassName('Weather-Display')
+    var divCard = document.createElement('div') 
+    //divCard.className = "card"
 
     //html card content
     weatherCard = `
@@ -157,5 +161,7 @@ async function getStartWeatherData() {
 }
 
 // runs autimatically. 
-getStartWeatherData()
-getEndWeatherData()
+// $('Weather-Display').click(function(){
+// getStartWeatherData()
+// getEndWeatherData()
+// });
