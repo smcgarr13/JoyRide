@@ -75,6 +75,7 @@ async function EndGeoCodingAPI(url){
 
 // Function Implementation
 createRouteBtn.addEventListener('click',function(){
+
   // Press Button to get the value of the inputs
   let StartAddress = document.getElementById("start-address").value;
   localStorage.setItem('StartAddress',StartAddress);
@@ -84,6 +85,9 @@ createRouteBtn.addEventListener('click',function(){
   console.log(EndAddress);
  if(StartAddress === null || StartAddress === undefined){
   // If input is not defined then use IP location API call to get starting latitude and longitude to use Address API call.  
+
+if(localStorage.getItem("StartAddress") === null){
+
   IpGetLoc(ipGeoAPI_url);
   StartLatitude = localStorage.getItem("StartLatitude");
   StartLongitude = localStorage.getItem("StartLongitude");
@@ -111,6 +115,7 @@ else{
   geoCodingAPI(StrtGeoCodingAPI_url);
 }
 
+
 if(localStorage.getItem("EndAddress")=== null || localStorage.getItem(StartAddress)=== undefined){
 
   // Have to add modal to alert user that should be recognized when input is faultyy
@@ -124,6 +129,15 @@ if(localStorage.getItem("EndAddress")=== null || localStorage.getItem(StartAddre
     if(event.target == modal){
     modal.style.display = 'none';
     }}
+<<<<<<< HEAD
+=======
+
+if(localStorage.getItem("EndAddress")=== null){
+  // Have to add modal to alert user that  
+}else{
+
+
+>>>>>>> 17c63c4ad4e11d8ea4f4df062ab133e5bf55a6c5
 }
 else{
   // Fix End Address for API call.
