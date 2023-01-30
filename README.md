@@ -23,6 +23,8 @@ Motocycle clip art: https://www.freeimages.com/clipart/green-motorbiker-5308221
 Please refer to the LICENSE in the repo.
 
 ## Mock-up Reference:
+![screenshot_of_deployed_site_joyRide](https://user-images.githubusercontent.com/117788958/215365619-afb8fe71-7b2b-4fa2-b8e9-2402495655bf.png)
 
 
 ## Deployed Website:
+https://smcgarr13.github.io/JoyRide/
