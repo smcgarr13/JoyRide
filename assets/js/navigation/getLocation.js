@@ -85,9 +85,6 @@ createRouteBtn.addEventListener('click',function(){
   console.log(EndAddress);
  if(StartAddress === null || StartAddress === undefined){
   // If input is not defined then use IP location API call to get starting latitude and longitude to use Address API call.  
-
-if(localStorage.getItem("StartAddress") === null){
-
   IpGetLoc(ipGeoAPI_url);
   StartLatitude = localStorage.getItem("StartLatitude");
   StartLongitude = localStorage.getItem("StartLongitude");
@@ -117,8 +114,6 @@ else{
 
 
 if(localStorage.getItem("EndAddress")=== null || localStorage.getItem(StartAddress)=== undefined){
-
-  // Have to add modal to alert user that should be recognized when input is faultyy
   var modal = document.getElementById("EndRouteModal");
   var span = document.getElementById('close')[0];
   modal.style.display = "block";
@@ -129,17 +124,7 @@ if(localStorage.getItem("EndAddress")=== null || localStorage.getItem(StartAddre
     if(event.target == modal){
     modal.style.display = 'none';
     }}
-<<<<<<< HEAD
-=======
-
-if(localStorage.getItem("EndAddress")=== null){
-  // Have to add modal to alert user that  
-}else{
-
-
->>>>>>> 17c63c4ad4e11d8ea4f4df062ab133e5bf55a6c5
-}
-else{
+} else{
   // Fix End Address for API call.
   const EndGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+ EndAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97"; 
   EndAddress = EndAddress.replaceAll(',','');
