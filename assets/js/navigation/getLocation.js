@@ -51,6 +51,8 @@ async function geoCodingAPI(url){
   const startCity = data.features[0].properties.city;
   const latitude = data.features[0].properties.lat;
   const longitude = data.features[0].properties.lon;
+  var StartLocation = {latitude,longitude};
+  localStorage.setItem("StartLocation",JSON.stringify(StartLocation));
   localStorage.setItem("StartLongitude",longitude);
   localStorage.setItem("StartLatitude",latitude);
   localStorage.setItem("startCity",startCity);
@@ -80,9 +82,7 @@ createRouteBtn.addEventListener('click',function(){
   let EndAddress = document.getElementById("end-address").value;
   localStorage.setItem('EndAddress',EndAddress);
   console.log(EndAddress);
-  StartLocation = JSON.parse(localStorage.getItem("StartLocation"));
-  EndLocation = JSON.parse(localStorage.getItem("EndLocation"));
-if(StartAddress === null || StartAddress === undefined){
+ if(StartAddress === null || StartAddress === undefined){
   // If input is not defined then use IP location API call to get starting latitude and longitude to use Address API call.  
   IpGetLoc(ipGeoAPI_url);
   StartLatitude = localStorage.getItem("StartLatitude");
@@ -124,7 +124,6 @@ if(localStorage.getItem("EndAddress")=== null || localStorage.getItem(StartAddre
     if(event.target == modal){
     modal.style.display = 'none';
     }}
-
 }
 else{
   // Fix End Address for API call.
@@ -146,7 +145,8 @@ else{
   let EndLongitude = localStorage.getItem("EndLongitude");
   var EndRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+EndLatitude+"&lon="+EndLongitude+"&apiKey="+myAPIKey;
 }
-
+StartLocation = JSON.parse(localStorage.getItem("StartLocation"));
+EndLocation = JSON.parse(localStorage.getItem("EndLocation"));
 if(StartLocation === null && EndLocation === null){
 
 }else{
