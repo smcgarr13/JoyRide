@@ -156,7 +156,6 @@ async function getStartWeatherData() {
 
   //set all variable for local storage 
 
-
  
 }
 
