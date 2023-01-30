@@ -3,7 +3,7 @@ A personalized web application based on the weather conditions for a specific mo
 
 ## Description
 
-This code was created to provide an app that helps the user plan a route, note weather conditions & points of interests, and  create playlists for their ride. 
+This code was created to provide an app that helps the user plan a route, note weather conditions & points of interests, and listen to music during their ride. 
 
 ## Installation
 
@@ -13,10 +13,15 @@ N/A
 
 To use this site you can add TBD...
 
+To use the audio player you can click on the Deezer modal and the player will pop up.  All buttons perform their respective functions and the next track on the playlist plays automatically.
+
 This site is responsive for different average screen widths.
 
 ## Credits
 Motocycle clip art: https://www.freeimages.com/clipart/green-motorbiker-5308221
+
+Referenced: https://www.youtube.com/watch?v=hJfhni_w8w8
+Referenced: https://www.youtube.com/watch?v=WTwwX__o01M 
 
 ## License
 
