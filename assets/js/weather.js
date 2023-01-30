@@ -161,7 +161,7 @@ async function getStartWeatherData() {
 }
 
 // runs autimatically. 
-$('Weather-Display').click(function(){
-getStartWeatherData()
-getEndWeatherData()
-});
+// $('Weather-Display').click(function(){
+// getStartWeatherData()
+// getEndWeatherData()
+// });
