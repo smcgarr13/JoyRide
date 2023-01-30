@@ -51,6 +51,8 @@ async function geoCodingAPI(url){
   const startCity = data.features[0].properties.city;
   const latitude = data.features[0].properties.lat;
   const longitude = data.features[0].properties.lon;
+  var StartLocation = {latitude,longitude};
+  localStorage.setItem("StartLocation",JSON.stringify(StartLocation));
   localStorage.setItem("StartLongitude",longitude);
   localStorage.setItem("StartLatitude",latitude);
   localStorage.setItem("startCity",startCity);
@@ -81,13 +83,8 @@ createRouteBtn.addEventListener('click',function(){
   let EndAddress = document.getElementById("end-address").value;
   localStorage.setItem('EndAddress',EndAddress);
   console.log(EndAddress);
-  StartLocation = JSON.parse(localStorage.getItem("StartLocation"));
-  EndLocation = JSON.parse(localStorage.getItem("EndLocation"));
-if(StartAddress === null || StartAddress === undefined){
+ if(StartAddress === null || StartAddress === undefined){
   // If input is not defined then use IP location API call to get starting latitude and longitude to use Address API call.  
-
-if(localStorage.getItem("StartAddress") === null){
-
   IpGetLoc(ipGeoAPI_url);
   StartLatitude = localStorage.getItem("StartLatitude");
   StartLongitude = localStorage.getItem("StartLongitude");
@@ -117,8 +114,6 @@ else{
 
 
 if(localStorage.getItem("EndAddress")=== null || localStorage.getItem(StartAddress)=== undefined){
-
-  // Have to add modal to alert user that should be recognized when input is faultyy
   var modal = document.getElementById("EndRouteModal");
   var span = document.getElementById('close')[0];
   modal.style.display = "block";
@@ -129,14 +124,7 @@ if(localStorage.getItem("EndAddress")=== null || localStorage.getItem(StartAddre
     if(event.target == modal){
     modal.style.display = 'none';
     }}
-
-if(localStorage.getItem("EndAddress")=== null){
-  // Have to add modal to alert user that  
-}else{
-
-
-}
-else{
+} else{
   // Fix End Address for API call.
   const EndGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+ EndAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97"; 
   EndAddress = EndAddress.replaceAll(',','');
@@ -156,7 +144,8 @@ else{
   let EndLongitude = localStorage.getItem("EndLongitude");
   var EndRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+EndLatitude+"&lon="+EndLongitude+"&apiKey="+myAPIKey;
 }
-
+StartLocation = JSON.parse(localStorage.getItem("StartLocation"));
+EndLocation = JSON.parse(localStorage.getItem("EndLocation"));
 if(StartLocation === null && EndLocation === null){
 
 }else{
