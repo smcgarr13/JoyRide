@@ -17,8 +17,6 @@
   <script defer src="./assets/js/navigation/getLocation.js"></script>
   <script defer src="./assets/js/navigation/map.js"></script>
   <script defer src="./assets/js/weather.js"></script>
-
-  
 </head>
 <body>
   <header>
@@ -66,18 +64,16 @@
         <a href="#">
           
           <div class="container-main">
-            <div class="row">
             <div class="single">
-                    <!-- <div class="col-8 border p-3"> -->
+            
                         <div id="track" class="track-active">
-                        <img id="album-cover" src="https://e-cdns-images.dzcdn.net/images/cover/7991a7b1b817059d7df1f846d0e29b5d/250x250-000000-80-0-0.jpg" alt="picture of album cover">
-                    </div>
+                        <img id="album-cover" src="./assets/images/deezer_placeholder.png" alt="picture of album cover">
+                        </div>
                         <div id="track-info">
                             <li id="song-name">Song</li>
                             <li id="artist-name">Artist</li>
-                            <!-- <li id="album-name">Album</li> -->
                         </div>
-                    </div>
+            </div>
             
                       <div class="audio-player">
                       <p class="time">00:00</p>
@@ -85,31 +81,13 @@
                         <div id="audio-player-buttons" class="container">
                             <div class="prev"><i class="fas fa-backward"></i></div>
                             <div class="play"><i class="fas fa-play"></i></div>
+                            <div class="pause"><i class="fas fa-pause"></i></div>
                             <div class="next"><i class="fas fa-forward"></i></div>
                         </div>
                     </div>
                 </div>
             </div>
-                <!-- Next Track -->
-                <li class="active" id="#track-2">
-                    <img id="album-cover-queue" src="./assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
-                    <div id="track-info-queue">
-                        <h4>Song Name</h4>
-                        <h4>Artist</h4>
-                    </div>
-                    <span>0:00</span>
-                </li>
-                <li class="active" id="#track-2">
-                    <img id="album-cover-queue" src="./assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
-                    <div id="track-info-queue">
-                        <h4>Song Name</h4>
-                        <h4>Artist</h4>
-                    </div>
-                    <span>0:00</span>
-                </li>
-            </ul>
-        
-        </div>
+          
 
         </a>
       </div>
@@ -151,11 +129,77 @@
 
         </div>
       </div>
+   <div class="modal" id="weather-modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Weather</p>
+            <button class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+            <!-- Content ... -->
+          </section>
+        </div>
+      </div>
+      <div id="music-modal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card is-centered">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Deezer</p>
+            <button class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+            <div class="music-card">
+              <div class="row">
+              <div class="single">
+                      <!-- <div class="col-8 border p-3"> -->
+                          <div id="track" class="track-active">
+                          <img id="album-cover" src="https://e-cdns-images.dzcdn.net/images/cover/7991a7b1b817059d7df1f846d0e29b5d/250x250-000000-80-0-0.jpg" alt="picture of album cover">
+                      </div>
+                          <div id="track-info">
+                              <li id="song-name">Song</li>
+                              <li id="artist-name">Artist</li>
+                              <!-- <li id="album-name">Album</li> -->
+                          </div>
+                      </div>
+              
+                        <div class="audio-player">
+                        <p class="time">00:00</p>
+                        <div class="seekbar-container"><div class="seekbar-inner" style="width: 0%"></div></div>
+                          <div id="audio-player-buttons" class="container">
+                              <div class="prev"><i class="fas fa-backward"></i></div>
+                              <div class="play"><i class="fas fa-play"></i></div>
+                              <div class="next"><i class="fas fa-forward"></i></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+                  <!-- Next Track -->
+<!--                   <li class="active" id="#track-2">
+                      <img id="album-cover-queue" src="./assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
+                      <div id="track-info-queue">
+                          <h4>Song Name</h4>
+                          <h4>Artist</h4>
+                      </div>
+                      <span>0:00</span>
+                  </li>
+                  <li class="active" id="#track-2">
+                      <img id="album-cover-queue" src="./assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
+                      <div id="track-info-queue">
+                          <h4>Song Name</h4>
+                          <h4>Artist</h4>
+                      </div>
+                      <span>0:00</span>
+                  </li>
+              </ul> -->
+          
+          </div>
+          </section>
+        </div>
+      </div>
+  
 
 <!-- Shannon code -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="./assets/js/music.js"></script>
 
 
