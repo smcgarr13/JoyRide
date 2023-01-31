@@ -277,10 +277,13 @@ color: #C2F102;
   background-color: #000000;
   
 }
+.weather-modal modal-card-body{
+  margin-right:auto;
+  margin-left: auto;
+}
 
 
-
-.music-card, {
+.music-modal modal-card-body {
   height: 80vh;
   margin-right: auto;
   margin-left: auto;
