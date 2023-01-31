@@ -11,7 +11,7 @@ N/A
 
 ## Usage
 
-To plan your route please click create route buttonn. Two inputs will appear for the starting location and destination. While the starting location is not needed it is advised as IpGeolocation API will be close but may not be accurate to current location. Once inputs have been written out, user may submit the data by pressing the Create Route button again. Directions for the planned route will appear on the front page of screen. To rewrite route user can use the same inputs but may have to press the Create Route Button usually 3 more times but maybe more before function is fully implemented.    
+To plan your route please click create route buttonn. Two inputs will appear for the starting location and destination. While the starting location is not needed it is advised as IpGeolocation API will be close but may not be accurate to current location. Once inputs have been written out, user may submit the data by pressing the Create Route button again. Directions for the planned route will appear on the front page of screen. To rewrite route user can use the same input boxes but may have to press the Create Route Button usually 3 more times but maybe more before function is fully implemented.    
 
 The weather function provides a 5-day forcast to help you determine the best day/days to complete your desired route.
 
