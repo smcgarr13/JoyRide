@@ -2,6 +2,8 @@ var menuEl = document.querySelector(".burger-menu");
 
 var routerEl = document.querySelector(".router-form");
 
+var mapEl = document.querySelector(".map-display");
+
 function openCLoseMenu(){
   menuEl.classList.toggle("hide");
 }
@@ -9,6 +11,10 @@ function openCLoseMenu(){
 function startRoute(){
   routerEl.classList.remove("hide")
 }
+function removeMap(){
+  mapEl.style.backgroundImage = "none";
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // Functions to open and close a modal
   function openModal($el) {
