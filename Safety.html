@@ -15,7 +15,6 @@
     <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' />
   <script defer src="./assets/js/script.js"></script>
   <script defer src="./assets/js/navigation/getLocation.js"></script>
-  <script defer src="./assets/js/navigation/map.js"></script>
   <script defer src="./assets/js/weather.js"></script>
 </head>
 <body>
@@ -53,15 +52,16 @@
   </header>
   <div class="tile is-ancestor midpage">
     <div class="tile is-parent is-2 is-vertical burger-menu hide">
-      <div class="tile is-child weather">
-        <a href="#">
+      <div class="tile is-child weather" onclick="getStartWeatherData()">
+        <a href="#" class="js-modal-trigger" data-target="weather-modal">
           
         </a>
+        
       </div>
       <span>Weather Forecast</span>
       <hr>
       <div class="tile is-child deezer">
-        <a href="#">
+        <a href="#" class="js-modal-trigger" data-target="music-modal">
           
           <div class="container-main">
             <div class="single">
@@ -70,24 +70,14 @@
                         <img id="album-cover" src="./assets/images/deezer_placeholder.png" alt="picture of album cover">
                         </div>
                         <div id="track-info">
-                            <li id="song-name">Song</li>
-                            <li id="artist-name">Artist</li>
+                            <li class="song-name">Song</li>
+                            <li class="artist-name">Artist</li>
                         </div>
             </div>
             
-                      <div class="audio-player">
-                      <p class="time">00:00</p>
-                      <div class="seekbar-container"><div class="seekbar-inner" style="width: 0%"></div></div>
-                        <div id="audio-player-buttons" class="container">
-                            <div class="prev"><i class="fas fa-backward"></i></div>
-                            <div class="play"><i class="fas fa-play"></i></div>
-                            <div class="pause"><i class="fas fa-pause"></i></div>
-                            <div class="next"><i class="fas fa-forward"></i></div>
-                        </div>
-                    </div>
-                </div>
+                    
             </div>
-          
+          </div>
 
         </a>
       </div>
@@ -129,15 +119,21 @@
 
         </div>
       </div>
-   <div class="modal" id="weather-modal">
+ 
+    
+    
+    
+    <div class="modal" id="weather-modal">
         <div class="modal-background"></div>
         <div class="modal-card">
           <header class="modal-card-head">
-            <p class="modal-card-title">Weather</p>
+            <p class="modal-card-title">Weather Forecast</p>
             <button class="delete" aria-label="close"></button>
           </header>
           <section class="modal-card-body">
-            <!-- Content ... -->
+            <div class="Weather-Display">
+              <!-- Content ... -->
+              </div>
           </section>
         </div>
       </div>
@@ -145,58 +141,38 @@
         <div class="modal-background"></div>
         <div class="modal-card is-centered">
           <header class="modal-card-head">
-            <p class="modal-card-title">Deezer</p>
+            <p class="modal-card-title">Deezer Music</p>
             <button class="delete" aria-label="close"></button>
           </header>
           <section class="modal-card-body">
-            <div class="music-card">
-              <div class="row">
-              <div class="single">
-                      <!-- <div class="col-8 border p-3"> -->
-                          <div id="track" class="track-active">
-                          <img id="album-cover" src="https://e-cdns-images.dzcdn.net/images/cover/7991a7b1b817059d7df1f846d0e29b5d/250x250-000000-80-0-0.jpg" alt="picture of album cover">
-                      </div>
-                          <div id="track-info">
-                              <li id="song-name">Song</li>
-                              <li id="artist-name">Artist</li>
-                              <!-- <li id="album-name">Album</li> -->
-                          </div>
-                      </div>
-              
-                        <div class="audio-player">
-                        <p class="time">00:00</p>
-                        <div class="seekbar-container"><div class="seekbar-inner" style="width: 0%"></div></div>
-                          <div id="audio-player-buttons" class="container">
-                              <div class="prev"><i class="fas fa-backward"></i></div>
-                              <div class="play"><i class="fas fa-play"></i></div>
-                              <div class="next"><i class="fas fa-forward"></i></div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-                  <!-- Next Track -->
-<!--                   <li class="active" id="#track-2">
-                      <img id="album-cover-queue" src="./assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
-                      <div id="track-info-queue">
-                          <h4>Song Name</h4>
-                          <h4>Artist</h4>
-                      </div>
-                      <span>0:00</span>
-                  </li>
-                  <li class="active" id="#track-2">
-                      <img id="album-cover-queue" src="./assets/images/motorbiker_placeholder_for_album cover-01.svg" alt="picture of album cover">
-                      <div id="track-info-queue">
-                          <h4>Song Name</h4>
-                          <h4>Artist</h4>
-                      </div>
-                      <span>0:00</span>
-                  </li>
-              </ul> -->
-          
-          </div>
+            <div class="container-main">
+            <div class="single">
+            
+                        <div id="track" class="track-active">
+                        <img id="album-cover" src="./assets/images/deezer_placeholder.png" alt="picture of album cover">
+                        </div>
+                        <div id="track-info">
+                            <li class="song-name">Song</li>
+                            <li class="artist-name">Artist</li>
+                        </div>
+            </div>
+            
+                      <div class="audio-player">
+                      <p class="time">00:00</p>
+                      <div class="seekbar-container"><div class="seekbar-inner" style="width: 0%"></div></div>
+                        <div id="audio-player-buttons" class="container">
+                            <div class="prev"><i class="fas fa-backward"></i></div>
+                            <div class="play"><i class="fas fa-play"></i></div>
+                            <div class="pause"><i class="fas fa-pause"></i></div>
+                            <div class="next"><i class="fas fa-forward"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
           </section>
         </div>
       </div>
+
   
 
 <!-- Shannon code -->
