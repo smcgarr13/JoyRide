@@ -66,7 +66,7 @@ async function getStartWeatherData() {
     //everytime the loop is iterated a new empty div is created
     //var divCard = document.getElementsByClassName('Weather-Display')
     var divCard = document.createElement('div') 
-    //divCard.className = "card"
+    divCard.className = "card"
 
     //html card content
     weatherCard = `
@@ -103,7 +103,7 @@ async function getStartWeatherData() {
     
 
   }
-
+  getEndWeatherData ()
 }
 
   async function getEndWeatherData() {
