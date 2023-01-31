@@ -244,9 +244,13 @@ color: #C2F102;
   cursor: pointer;
 }
 
+.li {
+  list-style-type: none;
+  color: aliceblue;
+}
+
 .song-name {
   margin-top: 5px;
-  list-style-type: none;
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -259,7 +263,6 @@ color: #C2F102;
 
 .artist-name {
   margin-top: 5px;
-  list-style-type: none;
   font-size: 10px;
   display: flex;
   align-items: center;
