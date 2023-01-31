@@ -277,11 +277,9 @@ color: #C2F102;
   background-color: #000000;
 }
 
-button .delete{
-  color: #C2F102;
-}
 
-.music-card{
+
+.music-card, .modal-card-body{
   height: 80vh;
   margin-right: auto;
   margin-left: auto;
