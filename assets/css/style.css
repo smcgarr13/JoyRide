@@ -283,7 +283,7 @@ color: #C2F102;
 }
 
 
-.music-modal modal-card-body {
+.music-modal modal-card-body , .music-card{
   height: 80vh;
   margin-right: auto;
   margin-left: auto;
