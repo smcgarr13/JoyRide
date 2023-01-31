@@ -183,7 +183,7 @@ color: #C2F102;
   height: 300px;
 }
 
-#album-cover {
+.album-cover {
   width: 80%;
   border-radius: 5px;
   margin: 25px 25px 25px 25px;
