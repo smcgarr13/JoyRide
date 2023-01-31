@@ -3,29 +3,11 @@ var weatherApiKey = "b93cfee2cf6c4ff52b56ed5c856c3976";
 var weatherApiRoot = 'https://api.openweathermap.org';
 
 var givenApiKey = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=b93cfee2cf6c4ff52b56ed5c856c3976'
-var startingLong = localStorage.getItem("StartLongitude");
-var startingLat = localStorage.getItem("StartLatitude");
-var endLong = localStorage.getItem("EndLongitude");
-var endLat = localStorage.getItem("EndLatitude");
-//Don't think this is needed. using create div on this class 
-//var divCard = document.getElementsByClassName('Weather-Display')
 
-//City name variable to add to for loop. 
-var startingCity = localStorage.getItem("startCity")
-var EndingCity = localStorage.getItem("endCity")
-
-//var longitude = -84.386330;
-//var latitude = 33.753746;
-
-//var inputLonLat = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&appid=' + weatherApiKey + '&units=imperial'
-
-var startWeather = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + startingLat + '&lon=' + startingLong + '&appid=' + weatherApiKey + '&units=imperial'
-
-var endWeather = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + endLat + '&lon=' + endLong + '&appid=' + weatherApiKey + '&units=imperial'
-
-//var forecastDiv = document.querySelector("#forecast")
 var forecastDiv = document.querySelector(".Weather-Display")
 
+
+// function to give riding recomendation based on the weather description. 
 function getWeatherCondition(weatherCondition) {
   if (weatherCondition == "Thunderstorm") {
     return 'Weather is not good for a drive'
@@ -53,19 +35,28 @@ function getWeatherCondition(weatherCondition) {
   }
 }
 
-
+// Function to pull weather information at the starting point.
 async function getStartWeatherData() {
+  //Pulls local storage variables and API information first 
+  var startingLong = localStorage.getItem("StartLongitude");
+  var startingLat = localStorage.getItem("StartLatitude");
+  var startWeather = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + startingLat + '&lon=' + startingLong + '&appid=' + weatherApiKey + '&units=imperial'
+
   const response = await fetch(startWeather);
   const data = await response.json();
+  var startingCity = localStorage.getItem("startCity")
 
-  //forecastDiv.textContent = ""
-  //var timeLeave = time.value
-  //create for loops for all variables to have just needed data for next 5 days 
 
+  forecastDiv.textContent = ""
+
+  if (startingCity === null) {
+    forecastDiv.textContent = "Create route first"
+  }
+
+  //create for loops for all variables to have just needed data for next 5 days @ 3pm every day
   for (var i = 4; i < data.list.length; i += 8) {
     //everytime the loop is iterated a new empty div is created
-    //var divCard = document.getElementsByClassName('Weather-Display')
-    var divCard = document.createElement('div') 
+    var divCard = document.createElement('div')
     divCard.className = "card"
 
     //html card content
@@ -98,29 +89,39 @@ async function getStartWeatherData() {
     //write the html content to the div card that was created
     divCard.innerHTML = weatherCard
 
-    //append the div card to the forecast div
-    forecastDiv.appendChild(divCard)
     
 
+  
+
+//append the div card to the forecast div
+forecastDiv.appendChild(divCard)
   }
-  getEndWeatherData ()
+  //Starta end weather function automatically. 
+  getEndWeatherData()
 }
 
-  async function getEndWeatherData() {
-    const response = await fetch(endWeather);
-    const data = await response.json();
-  
-    
-    //var timeLeave = time.value
-    //create for loops for all variables to have just needed data for next 5 days 
-  
-    for (var i = 4; i < data.list.length; i += 8) {
-      //everytime the loop is iterated a new empty div is created
-      var divCard = document.createElement('div')
-      divCard.className = "card"
-  
-      //html card content
-      weatherCard = `
+//End weather data.
+async function getEndWeatherData() {
+  //locally stored variables for location to get the correct weather from API.
+  var endLong = localStorage.getItem("EndLongitude");
+  var endLat = localStorage.getItem("EndLatitude");
+  var endWeather = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + endLat + '&lon=' + endLong + '&appid=' + weatherApiKey + '&units=imperial'
+
+  const response = await fetch(endWeather);
+  const data = await response.json();
+  var EndingCity = localStorage.getItem("endCity")
+
+  if (EndingCity === null) {
+    forecastDiv.append ("Missing End location")
+  }
+  //create for loops for all variables to have just needed data for next 5 days 
+  for (var i = 4; i < data.list.length; i += 8) {
+    //everytime the loop is iterated a new empty div is created
+    var divCard = document.createElement('div')
+    divCard.className = "card"
+
+    //html card content
+    weatherCard = `
       
               <div class="card-content">
                 <div class="media is pulled-right">
@@ -145,23 +146,15 @@ async function getStartWeatherData() {
                 </div>
               </div>
               `
-  
-      //write the html content to the div card that was created
-      divCard.innerHTML = weatherCard
-  
-      //append the div card to the forecast div
-      forecastDiv.appendChild(divCard)
-  
-    }
 
-  //set all variable for local storage 
+    //write the html content to the div card that was created
+    divCard.innerHTML = weatherCard
 
+    
+    //append the div card to the forecast div
+    forecastDiv.appendChild(divCard)
 
- 
+  }
+
 }
 
-// runs autimatically. 
-// $('Weather-Display').click(function(){
-// getStartWeatherData()
-// getEndWeatherData()
-// });
