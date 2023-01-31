@@ -22,7 +22,7 @@ var createRouteBtn = document.getElementById("route-btn");
 async function  IpGetLoc(url){
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
+    console.log("1st",data);
     const { location} = data;
     const {latitude,longitude} = location;
     const StartLocation = { latitude, longitude};
@@ -35,7 +35,7 @@ async function  IpGetLoc(url){
 async function StrtAdrgetLoc(url){
     const response = await fetch(url);
     const data = await response.json();
-    // console.log(data);
+    console.log("2",data);
     const StrtAddress1 = data.features[0].properties.address_line1;
     console.log(StrtAddress1);
     const StrtAddress2 = data.features[0].properties.address_line2;
@@ -47,7 +47,7 @@ async function StrtAdrgetLoc(url){
 async function geoCodingAPI(url){
   const response = await fetch(url);
   const data = await response.json();
-  // console.log(data);
+  console.log("3",data);
   const startCity = data.features[0].properties.city;
   const latitude = data.features[0].properties.lat;
   const longitude = data.features[0].properties.lon;
@@ -57,11 +57,11 @@ async function geoCodingAPI(url){
   localStorage.setItem("StartLatitude",latitude);
   localStorage.setItem("startCity",startCity);
 }
-// End Address
+// End Address location Function
 async function EndGeoCodingAPI(url){
   const response = await fetch(url);
   const data = await response.json();
-  // console.log(data);
+  console.log("4",data);
   var EndCity = data.features[0].properties.city;
   const latitude = data.features[0].properties.lat;
   const longitude = data.features[0].properties.lon;
@@ -72,23 +72,11 @@ async function EndGeoCodingAPI(url){
   localStorage.setItem("endCity",EndCity);
 }
 
-  // Direction Function
+  // Directions Function
   async function routtingAPI(url){
-    // let data1 = ipGeoAPI_url;
-    // console.log(data1)
-    // let data2 = "https://api.geoapify.com/v1/geocode/reverse?lat="+StartLatitude+"&lon="+StartLongitude+"&apiKey="+myAPIKey; ;
-    // let data3 = "https://api.geoapify.com/v1/geocode/search?text="+StartAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
-    // let data4 = "https://api.geoapify.com/v1/geocode/search?text="+ EndAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
-    // console.log(data1,data2,data3,data4)
-    //  [data1,data2,data3,data4] = await Promise.all([
-    //   await fetch('data1'),
-    //   await fetch('data2'),
-    //   await fetch('data3'),
-    //   await fetch('data4'),
-    // ]).then( response = await fetch(url));
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
+    console.log("5",data);
     var waypoints = data.features[0].properties.waypoints;
     localStorage.setItem("RouteWaypoints",JSON.stringify(waypoints))
     var coordinates = [];
@@ -108,7 +96,9 @@ async function EndGeoCodingAPI(url){
 
 
 // Function Implementation
-createRouteBtn.addEventListener('click',function(){
+
+// Route event listener
+createRouteBtn.addEventListener('click',function createRoute(){
 
   
 
@@ -172,16 +162,7 @@ if(
  EndGeoCodingAPI(EndGeoCodingAPI_url);
  // Variables are stored maybe kill next.
 } else{
-  // var modal = document.getElementById("EndRouteModal");
-  // var span = document.getElementById('close')[0];
-  // modal.style.display = "block";
-  // span.onclick = function(){
-  //   modal.style.display = 'none';
-  // }
-  // window.onclick = function(event){
-  //   if(event.target == modal){
-  //   modal.style.display = 'none';
-  //   }};
+// Modal function for no Destination Error Catch
   function openModal($el) {
     $el.classList.add('is-active');
   }
@@ -250,6 +231,7 @@ if(StartLocation && EndLocation){
  
 
 }else{
+
  
 }
 });
