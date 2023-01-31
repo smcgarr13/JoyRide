@@ -72,96 +72,23 @@ async function EndGeoCodingAPI(url){
   localStorage.setItem("endCity",EndCity);
 }
 
-
-// Function Implementation
-createRouteBtn.addEventListener('click',function(){
-
-  // Press Button to get the value of the inputs
-  let StartAddress = document.getElementById("start-address").value;
-  localStorage.setItem('StartAddress',StartAddress);
-  console.log(StartAddress);
-  let EndAddress = document.getElementById("end-address").value;
-  localStorage.setItem('EndAddress',EndAddress);
-  console.log(EndAddress);
- if(StartAddress === null || StartAddress === undefined){
-  // If input is not defined then use IP location API call to get starting latitude and longitude to use Address API call.  
-  IpGetLoc(ipGeoAPI_url);
-  StartLatitude = localStorage.getItem("StartLatitude");
-  StartLongitude = localStorage.getItem("StartLongitude");
-  var StrtRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+StartLatitude+"&lon="+StartLongitude+"&apiKey="+myAPIKey; 
-  StrtAdrgetLoc(StrtRvrsGeoApi);
-}
-else{ 
-  // StartAddress = localStorage.getItem("StartAddress");
-  // Url to call for latitude and longitude API call. 
-  const StrtGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+StartAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
-  // Clean up address for API call
-  StartAddress = StartAddress.replaceAll(',','');
-  StartAddress = StartAddress.replaceAll('.','');
-  StartAddress = StartAddress.split(" ");
-
-  let StrtAddressArr = [];
-  StrtAddressArr.push(StartAddress[0]);
-  for(let i = 1;i<StartAddress.length;i++){
-    StrtAddressArr.push("%20"+StartAddress[i]);
-  }
-  StrAdrStrng = StrtAddressArr.join("");
-
-  // console.log(StrAdrStrng);
-  // Run street address API call then store parameters inside local storage. 
-  geoCodingAPI(StrtGeoCodingAPI_url);
-}
-
-
-if(localStorage.getItem("EndAddress")=== null || localStorage.getItem(StartAddress)=== undefined){
-  var modal = document.getElementById("EndRouteModal");
-  var span = document.getElementById('close')[0];
-  modal.style.display = "block";
-  span.onclick = function(){
-    modal.style.display = 'none';
-  }
-  window.onclick = function(event){
-    if(event.target == modal){
-    modal.style.display = 'none';
-    }}
-} else{
-  // Fix End Address for API call.
-  const EndGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+ EndAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97"; 
-  EndAddress = EndAddress.replaceAll(',','');
-  EndAddress = EndAddress.replaceAll('.','');
-  EndAddress = EndAddress.split(" ");
-  let EndAddressArr = [];
-  EndAddressArr.push(EndAddress[0]);
-  for(let i = 1;i<EndAddress.length;i++){
-    EndAddressArr.push("%20"+EndAddress[i]);
-  
-  }
-  EndAdrStrng = EndAddressArr.join("");
-  // API call to store destination variables. 
-  EndGeoCodingAPI(EndGeoCodingAPI_url);
-  // Variables are stored maybe kill next. 
-  let EndLatitude = localStorage.getItem("EndLatitude");
-  let EndLongitude = localStorage.getItem("EndLongitude");
-  var EndRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+EndLatitude+"&lon="+EndLongitude+"&apiKey="+myAPIKey;
-}
-StartLocation = JSON.parse(localStorage.getItem("StartLocation"));
-EndLocation = JSON.parse(localStorage.getItem("EndLocation"));
-if(StartLocation === null && EndLocation === null){
-
-}else{
-  // Variables for Direction Function
-  var directionsList = document.getElementById("route-directions");
-  StartLatitude = localStorage.getItem("StartLatitude");
-  StartLongitude = localStorage.getItem("StartLongitude");
-  EndLatitude = localStorage.getItem("EndLatitude");
-  EndLongitude = localStorage.getItem("EndLongitude");
-  var customRoutingUrl = "https://api.geoapify.com/v1/routing?waypoints=" + StartLatitude + "%2C" + StartLongitude + "%7C" + EndLatitude + "%2C" + EndLongitude + "&detaisl=instruction_details&mode=drive&apiKey=" + myAPIKey;
-
   // Direction Function
   async function routtingAPI(url){
+    // let data1 = ipGeoAPI_url;
+    // console.log(data1)
+    // let data2 = "https://api.geoapify.com/v1/geocode/reverse?lat="+StartLatitude+"&lon="+StartLongitude+"&apiKey="+myAPIKey; ;
+    // let data3 = "https://api.geoapify.com/v1/geocode/search?text="+StartAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
+    // let data4 = "https://api.geoapify.com/v1/geocode/search?text="+ EndAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
+    // console.log(data1,data2,data3,data4)
+    //  [data1,data2,data3,data4] = await Promise.all([
+    //   await fetch('data1'),
+    //   await fetch('data2'),
+    //   await fetch('data3'),
+    //   await fetch('data4'),
+    // ]).then( response = await fetch(url));
     const response = await fetch(url);
     const data = await response.json();
-   console.log(data);
+    console.log(data);
     var waypoints = data.features[0].properties.waypoints;
     localStorage.setItem("RouteWaypoints",JSON.stringify(waypoints))
     var coordinates = [];
@@ -178,16 +105,151 @@ if(StartLocation === null && EndLocation === null){
     localStorage.setItem("routeArr",JSON.stringify(routeArr));
     localStorage.setItem("routeInst",JSON.stringify(routeInst));
 }
-// Running Function to get variables 
-  routtingAPI(customRoutingUrl); 
-  var routeInst = JSON.parse(localStorage.getItem("routeInst"));
-  console.log(routeInst);
-  for(let l =0;l<routeInst.length;l++){
-    var liDir = document.createElement('li');
-    liDir.textContent = [l+1]+"."+routeInst[l].text
-    directionsList.append(liDir); 
+
+
+// Function Implementation
+createRouteBtn.addEventListener('click',function(){
+
+  
+
+  // Press Button to get the value of the inputs
+  StartAddress = document.getElementById("start-address").value;
+  localStorage.setItem('StartAddress',StartAddress);
+  EndAddress = document.getElementById("end-address").value;
+  localStorage.setItem('EndAddress',EndAddress);
+  console.log(EndAddress);
+  EndLatitude;
+  EndLongitude;
+ if(
+  // StartAddress === null || StartAddress === undefined || StartAddress === ""|| 
+ StartAddress){
+    // Url to call for latitude and longitude API call. 
+    const StrtGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+StartAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97";
+    // Clean up address for API call
+    StartAddress = StartAddress.replaceAll(',','');
+    StartAddress = StartAddress.replaceAll('.','');
+    StartAddress = StartAddress.split(" ");
+  
+    let StrtAddressArr = [];
+    StrtAddressArr.push(StartAddress[0]);
+    for(let i = 1;i<StartAddress.length;i++){
+      StrtAddressArr.push("%20"+StartAddress[i]);
+    }
+    StrAdrStrng = StrtAddressArr.join("");
+  
+    // console.log(StrAdrStrng);
+    // Run street address API call then store parameters inside local storage. 
+    geoCodingAPI(StrtGeoCodingAPI_url);
+
+}
+else{ 
+    // If input is not defined then use IP location API call to get starting latitude and longitude to use Address API call.  
+    IpGetLoc(ipGeoAPI_url);
+    StartLatitude = localStorage.getItem("StartLatitude");
+    StartLongitude = localStorage.getItem("StartLongitude");
+    var StrtRvrsGeoApi = "https://api.geoapify.com/v1/geocode/reverse?lat="+StartLatitude+"&lon="+StartLongitude+"&apiKey="+myAPIKey;
+    console.log(StrtRvrsGeoApi); 
+    StrtAdrgetLoc(StrtRvrsGeoApi);
+}
+
+
+if(
+  // EndAddress=== null || EndAddress== undefined\
+  EndAddress){
+ // Fix End Address for API call.
+ const EndGeoCodingAPI_url = "https://api.geoapify.com/v1/geocode/search?text="+ EndAddress+"&apiKey=ed917d605c814a68adc8a1a68d0a3c97"; 
+ EndAddress = EndAddress.replaceAll(',','');
+ EndAddress = EndAddress.replaceAll('.','');
+ EndAddress = EndAddress.split(" ");
+ let EndAddressArr = [];
+ EndAddressArr.push(EndAddress[0]);
+ for(let i = 1;i<EndAddress.length;i++){
+   EndAddressArr.push("%20"+EndAddress[i]);
+ 
+ }
+ EndAdrStrng = EndAddressArr.join("");
+ // API call to store destination variables. 
+ EndGeoCodingAPI(EndGeoCodingAPI_url);
+ // Variables are stored maybe kill next.
+} else{
+  // var modal = document.getElementById("EndRouteModal");
+  // var span = document.getElementById('close')[0];
+  // modal.style.display = "block";
+  // span.onclick = function(){
+  //   modal.style.display = 'none';
+  // }
+  // window.onclick = function(event){
+  //   if(event.target == modal){
+  //   modal.style.display = 'none';
+  //   }};
+  function openModal($el) {
+    $el.classList.add('is-active');
   }
 
+  function closeModal($el) {
+    $el.classList.remove('is-active');
+  }
 
+  function closeAllModals() {
+    (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+      closeModal($modal);
+    });
+  }
+
+  // Add a click event on buttons to open a specific modal
+  (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+    const modal = $trigger.dataset.target;
+    const $target = document.getElementById(modal);
+
+    $trigger.addEventListener('click', () => {
+      openModal($target);
+    });
+  });
+
+  // Add a click event on various child elements to close the parent modal
+  (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
+    const $target = $close.closest('.modal');
+
+    $close.addEventListener('click', () => {
+      closeModal($target);
+    });
+  });
+
+  // Add a keyboard event to close all modals
+  document.addEventListener('keydown', (event) => {
+    const e = event || window.event;
+
+    if (e.keyCode === 27) { // Escape key
+      closeAllModals();
+    }
+  });
+}
+StartLocation = JSON.parse(localStorage.getItem("StartLocation"));
+EndLocation = JSON.parse(localStorage.getItem("EndLocation"));
+if(StartLocation && EndLocation){
+  // Variables for Direction Function
+   var directionsList = document.getElementById("route-directions");
+   directionsList.innerHTML = "";
+   StartLatitude = localStorage.getItem("StartLatitude");
+   StartLongitude = localStorage.getItem("StartLongitude");
+   EndLatitude = localStorage.getItem("EndLatitude");
+   EndLongitude = localStorage.getItem("EndLongitude");
+   var customRoutingUrl = "https://api.geoapify.com/v1/routing?waypoints=" + StartLatitude + "%2C" + StartLongitude + "%7C" + EndLatitude + "%2C" + EndLongitude + "&detaisl=instruction_details&mode=drive&apiKey=" + myAPIKey;
+ // Running Function to get variables 
+   routtingAPI(customRoutingUrl); 
+   var routeInst = JSON.parse(localStorage.getItem("routeInst"));
+     console.log(routeInst);
+   for(let l =0;l<routeInst.length;l++){
+     var liDir = document.createElement('li');
+     liDir.textContent = [l+1]+"."+routeInst[l].text
+     directionsList.append(liDir);
+     var br = document.createElement('br');
+     directionsList.appendChild(br); 
+   }
+ 
+ 
+
+}else{
+ 
 }
 });
