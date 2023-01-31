@@ -11,7 +11,9 @@ N/A
 
 ## Usage
 
-To use this site you can add TBD...
+The navigation function provides a route for your desired start/stop points.
+
+The weather function provides a 5-day forcast to help you determine the best day/days to complete your desired route.
 
 To use the audio player you can click on the Deezer modal and the player will pop up.  All buttons perform their respective functions and the next track on the playlist plays automatically.
 
