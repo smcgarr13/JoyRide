@@ -275,6 +275,7 @@ color: #C2F102;
 .modal-card, .modal-card-head, .modal-card-body, .modal-card-title{
   color: #C2F102;
   background-color: #000000;
+  overflow: hidden
 }
 
 
@@ -283,4 +284,5 @@ color: #C2F102;
   height: 80vh;
   margin-right: auto;
   margin-left: auto;
+  overflow: hidden
 }
