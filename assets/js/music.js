@@ -1,5 +1,4 @@
-var APIKey = "3be84550c5msh6225c2c3674dcaep112662jsn51bef5314860";
-// var APIKey = "f81d281d6amsh310843a7957d922p1d1b9cjsn8e63eaaea121";
+var APIKey = "f81d281d6amsh310843a7957d922p1d1b9cjsn8e63eaaea121";
 
 var playlist = ["Now or Never, The Roots","Sometimes I Rhyme Slow","On A Sunday Afternoon","ATLiens","Can I Kick It?","Summertime In the LBC","Hate It Or Love It","Feel Me Flow","Shimmy Shimmy Ya","Still Not a Player","Overnight Celebrity","Black and Yellow","Young, Wild & Free"];
 
@@ -18,18 +17,7 @@ $(document).ready(function () {
   $.ajax(settings).done(function (response) {
     console.log(response);
 
-    // add listner for click event
-    // $(document).ready(function () {
-    $("ul.list.li").click(function () {
-      $("ul.list.li").removeClass("active");
-      $(this).addClass("active");
-
-      let trackId = $(this).attr("track-id");
-      $(".single .track").removeClass("active");
-      $(trackId).addClass("active");
-    });
-
-    let audio = {};
+let audio = {};
     audio["track"] = new Audio();
 
     audio["track"].addEventListener("canplaythrough", function () {
@@ -51,10 +39,12 @@ $(document).ready(function () {
         method: "GET",
         headers: {
           "X-RapidAPI-Key":
-            "3be84550c5msh6225c2c3674dcaep112662jsn51bef5314860",
+          "f81d281d6amsh310843a7957d922p1d1b9cjsn8e63eaaea121",
           "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
         },
       };
+
+      // error catch for unfound tracks
       $.ajax(settings)
         .done(function (response) {
           if (response.data && response.data.length > 0) {
@@ -80,27 +70,25 @@ $(document).ready(function () {
           method: "GET",
           headers: {
             "X-RapidAPI-Key":
-              "3be84550c5msh6225c2c3674dcaep112662jsn51bef5314860",
+            "f81d281d6amsh310843a7957d922p1d1b9cjsn8e63eaaea121",
             "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
           },
         };
-        // $.ajax(settings).done(function (response) {
-        //   audio["track"].src = response.data[0].preview;
-        //   audio["track"].play();
-        // });
       });
     });
+
+    // play button function
     let interval;
     $(".play").click(function () {
       console.log("Button Works!!");
       if (isPlaying(audio["track"])) {
         audio["track"].pause();
-        $(".play svg").removeClass("fa-pause").addClass("fa-play");
+        // $(".play svg").removeClass("fa-pause").addClass("fa-play");
         clearInterval(interval);
       } else {
         audio["track"].play();
-        $(".play svg").removeClass("fa-play").addClass("fa-pause");
-      }
+        // $(".play svg").removeClass("fa-play").addClass("fa-pause");
+      };
 
       var randomArtist = Math.floor(Math.random() * playlist.length);
 
@@ -113,13 +101,13 @@ $(document).ready(function () {
         method: "GET",
         headers: {
           "X-RapidAPI-Key":
-            "3be84550c5msh6225c2c3674dcaep112662jsn51bef5314860",
+          "f81d281d6amsh310843a7957d922p1d1b9cjsn8e63eaaea121",
           "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
         },
       };
-
+    
       // pause button function
-      $(".pause").click(function () {
+      $(".pause").click(function() {
         console.log("Button Works!!");
 
         let audioDuration = Math.round(audio["track"].duration);
@@ -131,27 +119,17 @@ $(document).ready(function () {
         } else {
           audio["track"].play();
           // $(".play svg").removeClass("fa-play").addClass("fa-pause");
-
           clearInterval(itemInterval);
         }
       });
 
-      // $(audio["track"]).on("ended", function () {
-      //   var nextAudio = $(this).next(audio["track"]).get(0);
-      //   if (nextAudio) {
-      //     nextAudio.play();
-      //   }
-      // });
-
-      // add fast forward button click event listener
+      // fast forward button function
       $(".next").click(function () {
-        // set the current time to be 30 seconds ahead
         audio["track"].currentTime += 30;
       });
 
-      // add rewind button click event listener
+      // rewind button click function
       $(".prev").click(function () {
-        // set the current time to be 30 seconds ahead
         audio["track"].currentTime += 30;
       });
 
@@ -163,25 +141,27 @@ $(document).ready(function () {
         console.log(response.data[0].artist.name);
         console.log(response.data[0].album.cover_medium);
 
-        var songName = $("#song-name");
+        var songName = $(".song-name");
         songName.text(response.data[0].title);
 
-        var artistName = $("#artist-name");
+        var artistName = $(".artist-name");
         artistName.text(response.data[0].artist.name);
 
-        var albumCover = $("#album-cover");
+        var albumCover = $(".album-cover");
         albumCover.attr("src", response.data[0].album.cover_medium);
         
-        $(audio["track"]).on("ended", function () {
-          var randomIndex = Math.floor(Math.random() * playlist.length);
-          var nextTrack = playlist[randomIndex];
+        
+        $(audio["track"]).on("ended", function() {
+          // var randomIndex = Math.floor(Math.random() * playlist.length);
+          // var nextTrack = playlist[randomIndex]
         });
-
-        // timeout function
+   
+        
+        // audio duration function
         let audioURL = response.data[0].preview;
         audio["track"].src = audioURL;
 
-        setTimeout(function () {
+        setTimeout(function() {
           let interval;
           let pIndex = 0;
           let audioDuration = Math.round(audio["track"].duration);
@@ -194,8 +174,7 @@ $(document).ready(function () {
               audio["track"].pause();
               pIndex = 1;
               audio["track"].currentTime = 0;
-              // $(".play svg").removeClass("fa-pause").addClass("fa-play");
-            }
+            };
 
             $(".time").html(
               new Date(Math.round(audio["track"].currentTime) * 1000)
@@ -212,5 +191,6 @@ $(document).ready(function () {
 
   function isPlaying(audElem) {
     return !audElem.paused;
-  }
+  };
 });
+
