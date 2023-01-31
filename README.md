@@ -26,6 +26,8 @@ Deezer API: https://developers.deezer.com/
 
 Bulma CSS Framework: https://bulma.io/documentation/
 
+Weather API: https://openweathermap.org/forecast5
+
 Motocycle clip art: https://www.freeimages.com/clipart/green-motorbiker-5308221
 
 Referenced: https://www.youtube.com/watch?v=hJfhni_w8w8
