@@ -107,7 +107,7 @@ hr{
   left: 0;
   z-index: 1;
 }
-.api-display{
+.map-display{
   background-image: url(../images/map_placeholder.jpg);
   background-size: cover;
   background-repeat: no-repeat;
