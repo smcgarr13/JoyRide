@@ -244,7 +244,7 @@ color: #C2F102;
   cursor: pointer;
 }
 
-#song-name {
+.song-name {
   margin-top: 5px;
   list-style-type: none;
   font-size: 14px;
@@ -257,7 +257,7 @@ color: #C2F102;
   color: aliceblue;
 }
 
-#artist-name {
+.artist-name {
   margin-top: 5px;
   list-style-type: none;
   font-size: 10px;
