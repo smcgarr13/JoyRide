@@ -22,6 +22,8 @@ This site is responsive for mobile and desktops.
 ## Credits
 Geoapify API library: https://www.geoapify.com/
 
+Deezer API: https://developers.deezer.com/
+
 Bulma CSS Framework: https://bulma.io/documentation/
 
 Motocycle clip art: https://www.freeimages.com/clipart/green-motorbiker-5308221
