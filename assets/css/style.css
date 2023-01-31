@@ -269,4 +269,17 @@ color: #C2F102;
   border-radius: 5px;
   color: aliceblue;
 }
+.modal-card, .modal-card-head, .modal-card-body, .modal-card-title{
+  color: #C2F102;
+  background-color: #000000;
+}
 
+button .delete{
+  color: #C2F102;
+}
+
+.music-card{
+  height: 80vh;
+  margin-right: auto;
+  margin-left: auto;
+}
