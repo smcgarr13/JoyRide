@@ -17,8 +17,6 @@ The weather function provides a 5-day forcast to help you determine the best day
 
 To use the audio player you can click on the Deezer modal and the player will pop up.  All buttons perform their respective functions and the next track on the playlist plays automatically.
 
-This site is responsive for mobile and desktops.
-
 ## Credits
 Geoapify API library: https://www.geoapify.com/
 
@@ -27,6 +25,8 @@ Deezer API: https://developers.deezer.com/
 Bulma CSS Framework: https://bulma.io/documentation/
 
 Weather API: https://openweathermap.org/forecast5
+
+Map Image: https://www.istockphoto.com/vector/poster-map-united-states-of-america-with-state-names-gm610663444-104871117?phrase=united%20states%20map
 
 Motocycle clip art: https://www.freeimages.com/clipart/green-motorbiker-5308221
 
