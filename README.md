@@ -36,7 +36,8 @@ Referenced: https://www.youtube.com/watch?v=WTwwX__o01M
 ## License
 
 Please refer to the LICENSE in the repo.
-Geoapify Free license - given free API key: "ed917d605c814a68adc8a1a68d0a3c97" 
+Geoapify Free License - given free API key: "ed917d605c814a68adc8a1a68d0a3c97" 
+Deezer Free License - given free API key: "f81d281d6amsh310843a7957d922p1d1b9cjsn8e63eaaea121"
 
 ## Mock-up Reference:
 ![screenshot_of_deployed_site_joyRide](https://user-images.githubusercontent.com/117788958/215365619-afb8fe71-7b2b-4fa2-b8e9-2402495655bf.png)
