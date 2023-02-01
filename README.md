@@ -37,6 +37,7 @@ Referenced: https://www.youtube.com/watch?v=WTwwX__o01M
 
 Please refer to the LICENSE in the repo.
 Geoapify Free License - given free API key: "ed917d605c814a68adc8a1a68d0a3c97" 
+Open Weather Free License - given free API key: "b93cfee2cf6c4ff52b56ed5c856c3976"
 Deezer Free License - given free API key: "f81d281d6amsh310843a7957d922p1d1b9cjsn8e63eaaea121"
 
 ## Mock-up Reference:
